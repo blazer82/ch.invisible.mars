@@ -16,9 +16,44 @@
 		2E0344BB1455F36D0034B397 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344BA1455F36D0034B397 /* main.m */; };
 		2E0344BF1455F36D0034B397 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344BE1455F36D0034B397 /* AppDelegate.m */; };
 		2E0344C21455F36D0034B397 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0344C01455F36D0034B397 /* MainStoryboard.storyboard */; };
-		2E0344C41455F36D0034B397 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2E0344C31455F36D0034B397 /* Shader.fsh */; };
-		2E0344C61455F36D0034B397 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2E0344C51455F36D0034B397 /* Shader.vsh */; };
 		2E0344C91455F36D0034B397 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344C81455F36D0034B397 /* ViewController.m */; };
+		2E0345111455F4440034B397 /* IEGeometryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344D21455F4440034B397 /* IEGeometryController.m */; };
+		2E0345121455F4440034B397 /* IEShaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344D41455F4440034B397 /* IEShaderController.m */; };
+		2E0345131455F4440034B397 /* IETextureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344D61455F4440034B397 /* IETextureController.m */; };
+		2E0345141455F4440034B397 /* IETransformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344D81455F4440034B397 /* IETransformationController.m */; };
+		2E0345151455F4440034B397 /* IEComponentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344DA1455F4440034B397 /* IEComponentController.m */; };
+		2E0345161455F4440034B397 /* IEGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344DC1455F4440034B397 /* IEGameManager.m */; };
+		2E0345171455F4440034B397 /* IECameraObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344DF1455F4440034B397 /* IECameraObject.m */; };
+		2E0345181455F4440034B397 /* IEParticleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344E11455F4440034B397 /* IEParticleObject.m */; };
+		2E0345191455F4440034B397 /* IEParticleSystemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344E31455F4440034B397 /* IEParticleSystemObject.m */; };
+		2E03451A1455F4440034B397 /* IEShapeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344E51455F4440034B397 /* IEShapeObject.m */; };
+		2E03451B1455F4440034B397 /* IEGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344E71455F4440034B397 /* IEGameObject.m */; };
+		2E03451C1455F4440034B397 /* IEGraphicsManager_OpenGLES2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344EA1455F4440034B397 /* IEGraphicsManager_OpenGLES2.m */; };
+		2E03451D1455F4440034B397 /* IEGraphicsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344ED1455F4440034B397 /* IEGraphicsManager.m */; };
+		2E03451E1455F4440034B397 /* IEGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344F01455F4440034B397 /* IEGeometry.m */; };
+		2E03451F1455F4440034B397 /* IEShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344F21455F4440034B397 /* IEShader.m */; };
+		2E0345201455F4440034B397 /* IETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344F41455F4440034B397 /* IETexture.m */; };
+		2E0345211455F4440034B397 /* IETransformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344F61455F4440034B397 /* IETransformation.m */; };
+		2E0345221455F4440034B397 /* IENodeComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344F81455F4440034B397 /* IENodeComponent.m */; };
+		2E0345231455F4440034B397 /* IEForce.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344FB1455F4440034B397 /* IEForce.m */; };
+		2E0345241455F4440034B397 /* IEGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344FD1455F4440034B397 /* IEGravity.m */; };
+		2E0345251455F4440034B397 /* IESceneGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0344FF1455F4440034B397 /* IESceneGraph.m */; };
+		2E0345261455F4440034B397 /* IECameraNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0345021455F4440034B397 /* IECameraNode.m */; };
+		2E0345271455F4440034B397 /* IEGroupNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0345041455F4440034B397 /* IEGroupNode.m */; };
+		2E0345281455F4440034B397 /* IERootNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0345061455F4440034B397 /* IERootNode.m */; };
+		2E0345291455F4440034B397 /* IEShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0345081455F4440034B397 /* IEShapeNode.m */; };
+		2E03452A1455F4440034B397 /* IESceneNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03450A1455F4440034B397 /* IESceneNode.m */; };
+		2E03452B1455F4440034B397 /* Shader.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 2E03450E1455F4440034B397 /* Shader.fsh */; };
+		2E03452C1455F4440034B397 /* Shader.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 2E03450F1455F4440034B397 /* Shader.vsh */; };
+		2E03452E1455F71B0034B397 /* basestation.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2E03452D1455F71B0034B397 /* basestation.obj */; };
+		2E0345301455F7240034B397 /* basestation.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E03452F1455F7240034B397 /* basestation.png */; };
+		2E0345321455F7A30034B397 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0345311455F7A30034B397 /* CoreMotion.framework */; };
+		2E0345341455F8DB0034B397 /* cube2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2E0345331455F8DB0034B397 /* cube2.obj */; };
+		2E0345361455F8E30034B397 /* cube2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0345351455F8E30034B397 /* cube2.png */; };
+		2E0345371455F96F0034B397 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2E03450E1455F4440034B397 /* Shader.fsh */; };
+		2E0345381455F96F0034B397 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2E03450F1455F4440034B397 /* Shader.vsh */; };
+		2E03453A1455FB8C0034B397 /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0345391455FB8C0034B397 /* terrain.png */; };
+		2E03453C1455FB950034B397 /* terrain.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2E03453B1455FB950034B397 /* terrain.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,17 +63,77 @@
 		2E0344AE1455F36D0034B397 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2E0344B01455F36D0034B397 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		2E0344B21455F36D0034B397 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		2E0344B61455F36D0034B397 /* Mars-Info.plist */ = {isa = PBXFileReference; path = "Mars-Info.plist"; sourceTree = "<group>"; };
+		2E0344B61455F36D0034B397 /* Mars-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mars-Info.plist"; sourceTree = "<group>"; };
 		2E0344B81455F36D0034B397 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E0344BA1455F36D0034B397 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2E0344BC1455F36D0034B397 /* Mars-Prefix.pch */ = {isa = PBXFileReference; path = "Mars-Prefix.pch"; sourceTree = "<group>"; };
-		2E0344BD1455F36D0034B397 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		2E0344BC1455F36D0034B397 /* Mars-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mars-Prefix.pch"; sourceTree = "<group>"; };
+		2E0344BD1455F36D0034B397 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2E0344BE1455F36D0034B397 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2E0344C11455F36D0034B397 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		2E0344C31455F36D0034B397 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		2E0344C51455F36D0034B397 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
-		2E0344C71455F36D0034B397 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		2E0344C71455F36D0034B397 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2E0344C81455F36D0034B397 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2E0344D11455F4440034B397 /* IEGeometryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGeometryController.h; sourceTree = "<group>"; };
+		2E0344D21455F4440034B397 /* IEGeometryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGeometryController.m; sourceTree = "<group>"; };
+		2E0344D31455F4440034B397 /* IEShaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEShaderController.h; sourceTree = "<group>"; };
+		2E0344D41455F4440034B397 /* IEShaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEShaderController.m; sourceTree = "<group>"; };
+		2E0344D51455F4440034B397 /* IETextureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IETextureController.h; sourceTree = "<group>"; };
+		2E0344D61455F4440034B397 /* IETextureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IETextureController.m; sourceTree = "<group>"; };
+		2E0344D71455F4440034B397 /* IETransformationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IETransformationController.h; sourceTree = "<group>"; };
+		2E0344D81455F4440034B397 /* IETransformationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IETransformationController.m; sourceTree = "<group>"; };
+		2E0344D91455F4440034B397 /* IEComponentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEComponentController.h; sourceTree = "<group>"; };
+		2E0344DA1455F4440034B397 /* IEComponentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEComponentController.m; sourceTree = "<group>"; };
+		2E0344DB1455F4440034B397 /* IEGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGameManager.h; sourceTree = "<group>"; };
+		2E0344DC1455F4440034B397 /* IEGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGameManager.m; sourceTree = "<group>"; };
+		2E0344DE1455F4440034B397 /* IECameraObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IECameraObject.h; sourceTree = "<group>"; };
+		2E0344DF1455F4440034B397 /* IECameraObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IECameraObject.m; sourceTree = "<group>"; };
+		2E0344E01455F4440034B397 /* IEParticleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEParticleObject.h; sourceTree = "<group>"; };
+		2E0344E11455F4440034B397 /* IEParticleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEParticleObject.m; sourceTree = "<group>"; };
+		2E0344E21455F4440034B397 /* IEParticleSystemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEParticleSystemObject.h; sourceTree = "<group>"; };
+		2E0344E31455F4440034B397 /* IEParticleSystemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEParticleSystemObject.m; sourceTree = "<group>"; };
+		2E0344E41455F4440034B397 /* IEShapeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEShapeObject.h; sourceTree = "<group>"; };
+		2E0344E51455F4440034B397 /* IEShapeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEShapeObject.m; sourceTree = "<group>"; };
+		2E0344E61455F4440034B397 /* IEGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGameObject.h; sourceTree = "<group>"; };
+		2E0344E71455F4440034B397 /* IEGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGameObject.m; sourceTree = "<group>"; };
+		2E0344E91455F4440034B397 /* IEGraphicsManager_OpenGLES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGraphicsManager_OpenGLES2.h; sourceTree = "<group>"; };
+		2E0344EA1455F4440034B397 /* IEGraphicsManager_OpenGLES2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGraphicsManager_OpenGLES2.m; sourceTree = "<group>"; };
+		2E0344EB1455F4440034B397 /* IEGraphicsManager_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGraphicsManager_Protocol.h; sourceTree = "<group>"; };
+		2E0344EC1455F4440034B397 /* IEGraphicsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGraphicsManager.h; sourceTree = "<group>"; };
+		2E0344ED1455F4440034B397 /* IEGraphicsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGraphicsManager.m; sourceTree = "<group>"; };
+		2E0344EF1455F4440034B397 /* IEGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGeometry.h; sourceTree = "<group>"; };
+		2E0344F01455F4440034B397 /* IEGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGeometry.m; sourceTree = "<group>"; };
+		2E0344F11455F4440034B397 /* IEShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEShader.h; sourceTree = "<group>"; };
+		2E0344F21455F4440034B397 /* IEShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEShader.m; sourceTree = "<group>"; };
+		2E0344F31455F4440034B397 /* IETexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IETexture.h; sourceTree = "<group>"; };
+		2E0344F41455F4440034B397 /* IETexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IETexture.m; sourceTree = "<group>"; };
+		2E0344F51455F4440034B397 /* IETransformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IETransformation.h; sourceTree = "<group>"; };
+		2E0344F61455F4440034B397 /* IETransformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IETransformation.m; sourceTree = "<group>"; };
+		2E0344F71455F4440034B397 /* IENodeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IENodeComponent.h; sourceTree = "<group>"; };
+		2E0344F81455F4440034B397 /* IENodeComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IENodeComponent.m; sourceTree = "<group>"; };
+		2E0344FA1455F4440034B397 /* IEForce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEForce.h; sourceTree = "<group>"; };
+		2E0344FB1455F4440034B397 /* IEForce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEForce.m; sourceTree = "<group>"; };
+		2E0344FC1455F4440034B397 /* IEGravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGravity.h; sourceTree = "<group>"; };
+		2E0344FD1455F4440034B397 /* IEGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGravity.m; sourceTree = "<group>"; };
+		2E0344FE1455F4440034B397 /* IESceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IESceneGraph.h; sourceTree = "<group>"; };
+		2E0344FF1455F4440034B397 /* IESceneGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IESceneGraph.m; sourceTree = "<group>"; };
+		2E0345011455F4440034B397 /* IECameraNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IECameraNode.h; sourceTree = "<group>"; };
+		2E0345021455F4440034B397 /* IECameraNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IECameraNode.m; sourceTree = "<group>"; };
+		2E0345031455F4440034B397 /* IEGroupNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEGroupNode.h; sourceTree = "<group>"; };
+		2E0345041455F4440034B397 /* IEGroupNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEGroupNode.m; sourceTree = "<group>"; };
+		2E0345051455F4440034B397 /* IERootNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IERootNode.h; sourceTree = "<group>"; };
+		2E0345061455F4440034B397 /* IERootNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IERootNode.m; sourceTree = "<group>"; };
+		2E0345071455F4440034B397 /* IEShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEShapeNode.h; sourceTree = "<group>"; };
+		2E0345081455F4440034B397 /* IEShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEShapeNode.m; sourceTree = "<group>"; };
+		2E0345091455F4440034B397 /* IESceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IESceneNode.h; sourceTree = "<group>"; };
+		2E03450A1455F4440034B397 /* IESceneNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IESceneNode.m; sourceTree = "<group>"; };
+		2E03450E1455F4440034B397 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		2E03450F1455F4440034B397 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		2E03452D1455F71B0034B397 /* basestation.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = basestation.obj; sourceTree = "<group>"; };
+		2E03452F1455F7240034B397 /* basestation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basestation.png; sourceTree = "<group>"; };
+		2E0345311455F7A30034B397 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		2E0345331455F8DB0034B397 /* cube2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube2.obj; sourceTree = "<group>"; };
+		2E0345351455F8E30034B397 /* cube2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cube2.png; sourceTree = "<group>"; };
+		2E0345391455FB8C0034B397 /* terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = terrain.png; sourceTree = "<group>"; };
+		2E03453B1455FB950034B397 /* terrain.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = terrain.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0345321455F7A30034B397 /* CoreMotion.framework in Frameworks */,
 				2E0344AB1455F36D0034B397 /* UIKit.framework in Frameworks */,
 				2E0344AD1455F36D0034B397 /* Foundation.framework in Frameworks */,
 				2E0344AF1455F36D0034B397 /* CoreGraphics.framework in Frameworks */,
@@ -77,11 +173,12 @@
 		2E0344A91455F36D0034B397 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2E0344AA1455F36D0034B397 /* UIKit.framework */,
-				2E0344AC1455F36D0034B397 /* Foundation.framework */,
 				2E0344AE1455F36D0034B397 /* CoreGraphics.framework */,
+				2E0345311455F7A30034B397 /* CoreMotion.framework */,
+				2E0344AC1455F36D0034B397 /* Foundation.framework */,
 				2E0344B01455F36D0034B397 /* GLKit.framework */,
 				2E0344B21455F36D0034B397 /* OpenGLES.framework */,
+				2E0344AA1455F36D0034B397 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -89,11 +186,14 @@
 		2E0344B41455F36D0034B397 /* Mars */ = {
 			isa = PBXGroup;
 			children = (
+				2E0344CF1455F4440034B397 /* Engine */,
+				2E03450B1455F4440034B397 /* Models */,
+				2E03450C1455F4440034B397 /* Resources */,
+				2E03450D1455F4440034B397 /* Shaders */,
+				2E0345101455F4440034B397 /* Textures */,
 				2E0344BD1455F36D0034B397 /* AppDelegate.h */,
 				2E0344BE1455F36D0034B397 /* AppDelegate.m */,
 				2E0344C01455F36D0034B397 /* MainStoryboard.storyboard */,
-				2E0344C31455F36D0034B397 /* Shader.fsh */,
-				2E0344C51455F36D0034B397 /* Shader.vsh */,
 				2E0344C71455F36D0034B397 /* ViewController.h */,
 				2E0344C81455F36D0034B397 /* ViewController.m */,
 				2E0344B51455F36D0034B397 /* Supporting Files */,
@@ -110,6 +210,150 @@
 				2E0344BC1455F36D0034B397 /* Mars-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2E0344CF1455F4440034B397 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				2E0344D01455F4440034B397 /* IEComponentController */,
+				2E0344D91455F4440034B397 /* IEComponentController.h */,
+				2E0344DA1455F4440034B397 /* IEComponentController.m */,
+				2E0344DB1455F4440034B397 /* IEGameManager.h */,
+				2E0344DC1455F4440034B397 /* IEGameManager.m */,
+				2E0344DD1455F4440034B397 /* IEGameObject */,
+				2E0344E61455F4440034B397 /* IEGameObject.h */,
+				2E0344E71455F4440034B397 /* IEGameObject.m */,
+				2E0344E81455F4440034B397 /* IEGraphicsManager */,
+				2E0344EC1455F4440034B397 /* IEGraphicsManager.h */,
+				2E0344ED1455F4440034B397 /* IEGraphicsManager.m */,
+				2E0344EE1455F4440034B397 /* IENodeComponent */,
+				2E0344F71455F4440034B397 /* IENodeComponent.h */,
+				2E0344F81455F4440034B397 /* IENodeComponent.m */,
+				2E0344F91455F4440034B397 /* IEPhysics */,
+				2E0344FE1455F4440034B397 /* IESceneGraph.h */,
+				2E0344FF1455F4440034B397 /* IESceneGraph.m */,
+				2E0345001455F4440034B397 /* IESceneNode */,
+				2E0345091455F4440034B397 /* IESceneNode.h */,
+				2E03450A1455F4440034B397 /* IESceneNode.m */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		2E0344D01455F4440034B397 /* IEComponentController */ = {
+			isa = PBXGroup;
+			children = (
+				2E0344D11455F4440034B397 /* IEGeometryController.h */,
+				2E0344D21455F4440034B397 /* IEGeometryController.m */,
+				2E0344D31455F4440034B397 /* IEShaderController.h */,
+				2E0344D41455F4440034B397 /* IEShaderController.m */,
+				2E0344D51455F4440034B397 /* IETextureController.h */,
+				2E0344D61455F4440034B397 /* IETextureController.m */,
+				2E0344D71455F4440034B397 /* IETransformationController.h */,
+				2E0344D81455F4440034B397 /* IETransformationController.m */,
+			);
+			path = IEComponentController;
+			sourceTree = "<group>";
+		};
+		2E0344DD1455F4440034B397 /* IEGameObject */ = {
+			isa = PBXGroup;
+			children = (
+				2E0344DE1455F4440034B397 /* IECameraObject.h */,
+				2E0344DF1455F4440034B397 /* IECameraObject.m */,
+				2E0344E01455F4440034B397 /* IEParticleObject.h */,
+				2E0344E11455F4440034B397 /* IEParticleObject.m */,
+				2E0344E21455F4440034B397 /* IEParticleSystemObject.h */,
+				2E0344E31455F4440034B397 /* IEParticleSystemObject.m */,
+				2E0344E41455F4440034B397 /* IEShapeObject.h */,
+				2E0344E51455F4440034B397 /* IEShapeObject.m */,
+			);
+			path = IEGameObject;
+			sourceTree = "<group>";
+		};
+		2E0344E81455F4440034B397 /* IEGraphicsManager */ = {
+			isa = PBXGroup;
+			children = (
+				2E0344E91455F4440034B397 /* IEGraphicsManager_OpenGLES2.h */,
+				2E0344EA1455F4440034B397 /* IEGraphicsManager_OpenGLES2.m */,
+				2E0344EB1455F4440034B397 /* IEGraphicsManager_Protocol.h */,
+			);
+			path = IEGraphicsManager;
+			sourceTree = "<group>";
+		};
+		2E0344EE1455F4440034B397 /* IENodeComponent */ = {
+			isa = PBXGroup;
+			children = (
+				2E0344EF1455F4440034B397 /* IEGeometry.h */,
+				2E0344F01455F4440034B397 /* IEGeometry.m */,
+				2E0344F11455F4440034B397 /* IEShader.h */,
+				2E0344F21455F4440034B397 /* IEShader.m */,
+				2E0344F31455F4440034B397 /* IETexture.h */,
+				2E0344F41455F4440034B397 /* IETexture.m */,
+				2E0344F51455F4440034B397 /* IETransformation.h */,
+				2E0344F61455F4440034B397 /* IETransformation.m */,
+			);
+			path = IENodeComponent;
+			sourceTree = "<group>";
+		};
+		2E0344F91455F4440034B397 /* IEPhysics */ = {
+			isa = PBXGroup;
+			children = (
+				2E0344FA1455F4440034B397 /* IEForce.h */,
+				2E0344FB1455F4440034B397 /* IEForce.m */,
+				2E0344FC1455F4440034B397 /* IEGravity.h */,
+				2E0344FD1455F4440034B397 /* IEGravity.m */,
+			);
+			path = IEPhysics;
+			sourceTree = "<group>";
+		};
+		2E0345001455F4440034B397 /* IESceneNode */ = {
+			isa = PBXGroup;
+			children = (
+				2E0345011455F4440034B397 /* IECameraNode.h */,
+				2E0345021455F4440034B397 /* IECameraNode.m */,
+				2E0345031455F4440034B397 /* IEGroupNode.h */,
+				2E0345041455F4440034B397 /* IEGroupNode.m */,
+				2E0345051455F4440034B397 /* IERootNode.h */,
+				2E0345061455F4440034B397 /* IERootNode.m */,
+				2E0345071455F4440034B397 /* IEShapeNode.h */,
+				2E0345081455F4440034B397 /* IEShapeNode.m */,
+			);
+			path = IESceneNode;
+			sourceTree = "<group>";
+		};
+		2E03450B1455F4440034B397 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E03453B1455FB950034B397 /* terrain.obj */,
+				2E0345331455F8DB0034B397 /* cube2.obj */,
+				2E03452D1455F71B0034B397 /* basestation.obj */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2E03450C1455F4440034B397 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2E03450D1455F4440034B397 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				2E03450E1455F4440034B397 /* Shader.fsh */,
+				2E03450F1455F4440034B397 /* Shader.vsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		2E0345101455F4440034B397 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				2E0345391455FB8C0034B397 /* terrain.png */,
+				2E0345351455F8E30034B397 /* cube2.png */,
+				2E03452F1455F7240034B397 /* basestation.png */,
+			);
+			path = Textures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,10 +406,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0345371455F96F0034B397 /* Shader.fsh in Resources */,
+				2E0345381455F96F0034B397 /* Shader.vsh in Resources */,
 				2E0344B91455F36D0034B397 /* InfoPlist.strings in Resources */,
 				2E0344C21455F36D0034B397 /* MainStoryboard.storyboard in Resources */,
-				2E0344C41455F36D0034B397 /* Shader.fsh in Resources */,
-				2E0344C61455F36D0034B397 /* Shader.vsh in Resources */,
+				2E03452E1455F71B0034B397 /* basestation.obj in Resources */,
+				2E0345301455F7240034B397 /* basestation.png in Resources */,
+				2E0345341455F8DB0034B397 /* cube2.obj in Resources */,
+				2E0345361455F8E30034B397 /* cube2.png in Resources */,
+				2E03453A1455FB8C0034B397 /* terrain.png in Resources */,
+				2E03453C1455FB950034B397 /* terrain.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +429,34 @@
 				2E0344BB1455F36D0034B397 /* main.m in Sources */,
 				2E0344BF1455F36D0034B397 /* AppDelegate.m in Sources */,
 				2E0344C91455F36D0034B397 /* ViewController.m in Sources */,
+				2E0345111455F4440034B397 /* IEGeometryController.m in Sources */,
+				2E0345121455F4440034B397 /* IEShaderController.m in Sources */,
+				2E0345131455F4440034B397 /* IETextureController.m in Sources */,
+				2E0345141455F4440034B397 /* IETransformationController.m in Sources */,
+				2E0345151455F4440034B397 /* IEComponentController.m in Sources */,
+				2E0345161455F4440034B397 /* IEGameManager.m in Sources */,
+				2E0345171455F4440034B397 /* IECameraObject.m in Sources */,
+				2E0345181455F4440034B397 /* IEParticleObject.m in Sources */,
+				2E0345191455F4440034B397 /* IEParticleSystemObject.m in Sources */,
+				2E03451A1455F4440034B397 /* IEShapeObject.m in Sources */,
+				2E03451B1455F4440034B397 /* IEGameObject.m in Sources */,
+				2E03451C1455F4440034B397 /* IEGraphicsManager_OpenGLES2.m in Sources */,
+				2E03451D1455F4440034B397 /* IEGraphicsManager.m in Sources */,
+				2E03451E1455F4440034B397 /* IEGeometry.m in Sources */,
+				2E03451F1455F4440034B397 /* IEShader.m in Sources */,
+				2E0345201455F4440034B397 /* IETexture.m in Sources */,
+				2E0345211455F4440034B397 /* IETransformation.m in Sources */,
+				2E0345221455F4440034B397 /* IENodeComponent.m in Sources */,
+				2E0345231455F4440034B397 /* IEForce.m in Sources */,
+				2E0345241455F4440034B397 /* IEGravity.m in Sources */,
+				2E0345251455F4440034B397 /* IESceneGraph.m in Sources */,
+				2E0345261455F4440034B397 /* IECameraNode.m in Sources */,
+				2E0345271455F4440034B397 /* IEGroupNode.m in Sources */,
+				2E0345281455F4440034B397 /* IERootNode.m in Sources */,
+				2E0345291455F4440034B397 /* IEShapeNode.m in Sources */,
+				2E03452A1455F4440034B397 /* IESceneNode.m in Sources */,
+				2E03452B1455F4440034B397 /* Shader.fsh in Sources */,
+				2E03452C1455F4440034B397 /* Shader.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

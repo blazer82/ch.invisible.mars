@@ -1,0 +1,13 @@
+# Blender MTL File: 'terrain1.blend'
+# Material Count: 1
+newmtl Terrain_terrain.003
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.254825 0.111199 0.065285
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd /Volumes/Macintosh HD 2/Raphi/Documents/Blender/Xcode/Mars/Mars/Textures/terrain.png
+
+

@@ -1,0 +1,46 @@
+# Blender MTL File: 'terrain1.blend'
+# Material Count: 4
+newmtl Body_basestation.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Volumes/Macintosh HD 2/Raphi/Documents/Blender/Xcode/Mars/Mars/Textures/basestation.png
+
+
+newmtl Gear_basestation.001
+Ns 3.921569
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.093407 0.093407 0.093407
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Volumes/Macintosh HD 2/Raphi/Documents/Blender/Xcode/Mars/Mars/Textures/basestation.png
+
+
+newmtl Stair_basestation.001
+Ns 164.705882
+Ka 0.000000 0.000000 0.000000
+Kd 0.538214 0.538214 0.538214
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Volumes/Macintosh HD 2/Raphi/Documents/Blender/Xcode/Mars/Mars/Textures/basestation.png
+
+
+newmtl Window_basestation.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.621716 0.640000 0.384285
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Volumes/Macintosh HD 2/Raphi/Documents/Blender/Xcode/Mars/Mars/Textures/basestation.png
+
+
