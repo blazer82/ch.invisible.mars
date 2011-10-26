@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) IECameraNode *cameraNode;
 
-- (id)initWithView:(GLKView*)view;
+- (id)initPerspectiveWithView:(GLKView*)view;
+- (id)initOrthoWithView:(GLKView*)view;
 
 @end

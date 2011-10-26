@@ -12,13 +12,26 @@
 
 @synthesize cameraNode = _cameraNode;
 
-- (id)initWithView:(GLKView *)view
+- (id)initPerspectiveWithView:(GLKView *)view
 {
     self = [super init];
     
     float aspect = fabsf(view.bounds.size.width / view.bounds.size.height);
     
     _cameraNode = [[IECameraNode alloc] initPerspectiveWithAspect:aspect];
+    
+    self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
+    
+    return self;
+}
+
+- (id)initOrthoWithView:(GLKView *)view
+{
+    self = [super init];
+    
+    float aspect = fabsf(view.bounds.size.width / view.bounds.size.height);
+    
+    _cameraNode = [[IECameraNode alloc] initOrthoWithAspect:aspect];
     
     self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
     

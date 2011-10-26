@@ -64,7 +64,7 @@ static IEGameManager *_sharedManager = nil;
 
 - (void)setupCameraWithView:(GLKView *)view
 {
-    _cameraObject = [[IECameraObject alloc] initWithView:view];
+    _cameraObject = [[IECameraObject alloc] initOrthoWithView:view];
     //[_cameraObject.transformationController moveY:-2.0f];
     [_graphicsManager.sceneGraph.rootNode attachCameraChild:_cameraObject.cameraNode];
 }

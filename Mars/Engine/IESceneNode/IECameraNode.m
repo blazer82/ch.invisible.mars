@@ -23,11 +23,14 @@
     return self;
 }
 
-- (id)initOrtho
+- (id)initOrthoWithAspect:(float)aspect
 {
     self = [super init];
     
-    _initialProjectionMatrix = GLKMatrix4MakeOrtho(-5.0f, 5.0f, 0.0f, 20.0f, 0.1f, 100.0f);
+    float width = 10.0f * aspect;
+    float height = width / aspect;
+    
+    _initialProjectionMatrix = GLKMatrix4MakeOrtho(-(width/2), (width/2), 0.0f, height, 0.1f, 100.0f);
     _projectionMatrix = _initialProjectionMatrix;
     
     return self;

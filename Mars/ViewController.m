@@ -83,10 +83,10 @@
 
 - (void)setupGL
 {
-    [_gameManager.cameraObject.transformationController rotateX:GLKMathDegreesToRadians(30)];
+    [_gameManager.cameraObject.transformationController rotateX:GLKMathDegreesToRadians(60)];
     //[_gameManager.cameraObject.transformationController moveX:17.1f];
     //[_gameManager.cameraObject.transformationController moveZ:-5.6f];
-    [_gameManager.cameraObject.transformationController moveY:-4.0f];
+    [_gameManager.cameraObject.transformationController moveY:-1.1f];
     
     _shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"Shader" andTextureNamed:@"terrain"];
     [self.gameManager registerShapeObject:_shapeObject];
@@ -115,7 +115,8 @@
 - (void)update
 {
     [_gameManager.cameraObject.transformationController rotateY:(self.timeSinceLastUpdate * 0.5f)];
-    //[_gameManager.cameraObject.transformationController moveX:(self.timeSinceLastUpdate * 0.1f)];
+    //[_gameManager.cameraObject.transformationController moveX:(self.timeSinceLastUpdate * 0.25f)];
+    //[_gameManager.cameraObject.transformationController moveY:(self.timeSinceLastUpdate * 0.25f)];
     //[_shapeObject.transformationController rotateXYZ:(self.timeSinceLastUpdate * 0.5f)];
     //[_shapeObject2.transformationController rotateXYZ:(self.timeSinceLastUpdate * 5.0f)];
 }

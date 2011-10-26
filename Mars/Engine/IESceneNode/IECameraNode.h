@@ -15,6 +15,6 @@
 @property (nonatomic) GLKMatrix4 projectionMatrix;
 
 - (id)initPerspectiveWithAspect:(float)aspect;
-- (id)initOrtho;
+- (id)initOrthoWithAspect:(float)aspect;
 
 @end
