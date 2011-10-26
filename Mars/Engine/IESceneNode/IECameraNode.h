@@ -12,7 +12,9 @@
 @interface IECameraNode : IESceneNode
 
 @property (nonatomic) GLKMatrix4 initialProjectionMatrix;
+@property (nonatomic) GLKMatrix4 projectionMatrix;
 
 - (id)initPerspectiveWithAspect:(float)aspect;
+- (id)initOrtho;
 
 @end

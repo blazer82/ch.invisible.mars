@@ -83,7 +83,7 @@
 
 - (void)setupGL
 {
-    //[_gameManager.cameraObject.transformationController rotateX:(30*(3.142f/180))];
+    [_gameManager.cameraObject.transformationController rotateX:GLKMathDegreesToRadians(30)];
     //[_gameManager.cameraObject.transformationController moveX:17.1f];
     //[_gameManager.cameraObject.transformationController moveZ:-5.6f];
     [_gameManager.cameraObject.transformationController moveY:-4.0f];
@@ -115,6 +115,7 @@
 - (void)update
 {
     [_gameManager.cameraObject.transformationController rotateY:(self.timeSinceLastUpdate * 0.5f)];
+    //[_gameManager.cameraObject.transformationController moveX:(self.timeSinceLastUpdate * 0.1f)];
     //[_shapeObject.transformationController rotateXYZ:(self.timeSinceLastUpdate * 0.5f)];
     //[_shapeObject2.transformationController rotateXYZ:(self.timeSinceLastUpdate * 5.0f)];
 }

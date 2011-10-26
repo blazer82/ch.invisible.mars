@@ -16,7 +16,7 @@
 {
     self = [super init];
     
-    _matrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -10.0f);
+    _matrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 0.0f);
     
     return self;
 }

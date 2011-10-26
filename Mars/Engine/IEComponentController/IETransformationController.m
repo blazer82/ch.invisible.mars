@@ -26,6 +26,7 @@
 {
     self = [super init];
     
+    node.transformation = [[IETransformation alloc] init];
     _transformation = node.transformation;
     
     return self;

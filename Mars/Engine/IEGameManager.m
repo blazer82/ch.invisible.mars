@@ -75,7 +75,7 @@ static IEGameManager *_sharedManager = nil;
     if (_useDeviceMotion)
     {
         // Get device motion
-        CMDeviceMotion *currentDeviceMotion = [_motionManager deviceMotion];
+        /*CMDeviceMotion *currentDeviceMotion = [_motionManager deviceMotion];
         CMAttitude *currentAttitude = [currentDeviceMotion attitude];
         CMRotationMatrix rotationMatrix = [currentAttitude rotationMatrix];
         
@@ -86,7 +86,7 @@ static IEGameManager *_sharedManager = nil;
         // correct rotation
         projectionRotationMatrix = GLKMatrix4RotateX(projectionRotationMatrix, 1.25f);
         
-        _graphicsManager.sceneGraph.rootNode.cameraChild.transformation.matrix = GLKMatrix4Multiply(_graphicsManager.sceneGraph.rootNode.cameraChild.initialProjectionMatrix, projectionRotationMatrix);
+        _graphicsManager.sceneGraph.rootNode.cameraChild.transformation.matrix = GLKMatrix4Multiply(_graphicsManager.sceneGraph.rootNode.cameraChild.initialProjectionMatrix, projectionRotationMatrix);*/
     }
     
     // update particle systems

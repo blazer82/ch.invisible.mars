@@ -67,7 +67,8 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
 
 - (void)renderShapeNode:(IEShapeNode *)shapeNode forCameraNode:(IECameraNode *)cameraNode
 {
-    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(cameraNode.transformation.matrix, shapeNode.transformation.matrix);
+    GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(cameraNode.transformation.matrix, shapeNode.transformation.matrix);
+    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(cameraNode.projectionMatrix, modelViewMatrix);
     GLKMatrix3 normalMatrix = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(shapeNode.transformation.matrix), NULL);
     
     glBindVertexArrayOES(shapeNode.geometry.vertexArray);
