@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
-#import "IEGameManager.h"
-#import "IEShapeObject.h"
-#import "IEParticleSystemObject.h"
+#import "Game.h"
 
 @interface ViewController : GLKViewController
 

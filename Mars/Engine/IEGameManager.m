@@ -94,8 +94,10 @@ static IEGameManager *_sharedManager = nil;
     {
         [particleSystem update:timeSinceLastUpdate];
     }
-    
-    // render
+}
+
+- (void)render:(float)timeSinceLastRender
+{
     [_graphicsManager prepareToDraw];
     for (IEShapeNode *shape in _graphicsManager.sceneGraph.rootNode.shapeChildren)
     {

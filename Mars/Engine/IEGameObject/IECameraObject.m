@@ -18,7 +18,7 @@
     
     float aspect = fabsf(view.bounds.size.width / view.bounds.size.height);
     
-    _cameraNode = [[IECameraNode alloc] initPerspectiveWithAspect:aspect];
+    _cameraNode = [[IECameraNode_Perspective alloc] initWithAspect:aspect];
     
     self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
     
@@ -31,7 +31,7 @@
     
     float aspect = fabsf(view.bounds.size.width / view.bounds.size.height);
     
-    _cameraNode = [[IECameraNode alloc] initOrthoWithAspect:aspect];
+    _cameraNode = [[IECameraNode_Ortho alloc] initWithAspect:aspect];
     
     self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
     

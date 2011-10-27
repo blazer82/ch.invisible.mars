@@ -7,7 +7,8 @@
 //
 
 #import "IEGameObject.h"
-#import "IECameraNode.h"
+#import "IECameraNode_Perspective.h"
+#import "IECameraNode_Ortho.h"
 
 @interface IECameraObject : IEGameObject
 

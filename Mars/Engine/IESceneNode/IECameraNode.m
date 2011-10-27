@@ -12,26 +12,13 @@
 
 @synthesize initialProjectionMatrix = _initialProjectionMatrix;
 @synthesize projectionMatrix = _projectionMatrix;
+@synthesize zoomFactor = _zoomFactor;
 
-- (id)initPerspectiveWithAspect:(float)aspect
+- (id)init
 {
     self = [super init];
     
-    _initialProjectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 0.1f, 100.0f);
-    _projectionMatrix = _initialProjectionMatrix;
-    
-    return self;
-}
-
-- (id)initOrthoWithAspect:(float)aspect
-{
-    self = [super init];
-    
-    float width = 10.0f * aspect;
-    float height = width / aspect;
-    
-    _initialProjectionMatrix = GLKMatrix4MakeOrtho(-(width/2), (width/2), 0.0f, height, 0.1f, 100.0f);
-    _projectionMatrix = _initialProjectionMatrix;
+    _zoomFactor = 1.0f;
     
     return self;
 }

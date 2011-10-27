@@ -23,6 +23,7 @@
 - (void)setupWithView:(GLKView *)view;
 - (void)useMotionManager;
 - (void)update:(float)timeSinceLastUpdate;
+- (void)render:(float)timeSinceLastRender;
 - (void)registerShapeObject:(IEShapeObject*)shapeObject;
 - (void)registerParticleSystem:(IEParticleSystemObject*)particleSystem;
 

@@ -8,13 +8,12 @@
 
 #import "IESceneNode.h"
 #import <GLKit/GLKit.h>
+#import "IECameraNode_Protocol.h"
 
-@interface IECameraNode : IESceneNode
+@interface IECameraNode : IESceneNode <IECameraNode_Protocol>
 
 @property (nonatomic) GLKMatrix4 initialProjectionMatrix;
 @property (nonatomic) GLKMatrix4 projectionMatrix;
-
-- (id)initPerspectiveWithAspect:(float)aspect;
-- (id)initOrthoWithAspect:(float)aspect;
+@property (nonatomic) float zoomFactor;
 
 @end

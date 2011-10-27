@@ -9,60 +9,35 @@
 #import "ViewController.h"
 
 @interface ViewController () {
-    GLuint _program;
-    
-    GLKMatrix4 _modelViewProjectionMatrix;
-    GLKMatrix3 _normalMatrix;
-    float _rotation;
-    
-    GLuint _vertexArray;
-    GLuint _vertexBuffer;
+
 }
-@property (nonatomic, strong) IEGameManager *gameManager;
-@property (nonatomic, strong) IEShapeObject *shapeObject;
-@property (nonatomic, strong) IEShapeObject *shapeObject2;
+@property (strong, nonatomic) Game *game;
 
-@property (strong, nonatomic) EAGLContext *context;
-@property (strong, nonatomic) GLKBaseEffect *effect;
-
-- (void)setupGL;
 - (void)tearDownGL;
 @end
 
 @implementation ViewController
 
-@synthesize gameManager = _gameManager;
-@synthesize shapeObject = _shapeObject;
-@synthesize shapeObject2 = _shapeObject2;
-@synthesize context = _context;
-@synthesize effect = _effect;
+@synthesize game = _game;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    
-    if (!self.context) {
-        NSLog(@"Failed to create ES context");
-    }
-    
-    self.gameManager = [IEGameManager sharedManager];
-    [self.gameManager setupWithView:(GLKView *)self.view];  
-    //[self.gameManager useMotionManager];
-    [self setupGL];
+    _game = [[Game alloc] init];
+    [_game setupWithView:(GLKView *)self.view];
 }
 
 - (void)viewDidUnload
 {    
     [super viewDidUnload];
     
-    [self tearDownGL];
+    /*[self tearDownGL];
     
     if ([EAGLContext currentContext] == self.context) {
         [EAGLContext setCurrentContext:nil];
     }
-	self.context = nil;
+	self.context = nil;*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,20 +54,6 @@
     } else {
         return NO;
     }
-}
-
-- (void)setupGL
-{
-    [_gameManager.cameraObject.transformationController rotateX:GLKMathDegreesToRadians(60)];
-    //[_gameManager.cameraObject.transformationController moveX:17.1f];
-    //[_gameManager.cameraObject.transformationController moveZ:-5.6f];
-    [_gameManager.cameraObject.transformationController moveY:-1.1f];
-    
-    _shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"Shader" andTextureNamed:@"terrain"];
-    [self.gameManager registerShapeObject:_shapeObject];
-    
-    _shapeObject2 = [[IEShapeObject alloc] initWithGeometryNamed:@"basestation" andShaderNamed:@"Shader" andTextureNamed:@"basestation"];
-    [self.gameManager registerShapeObject:_shapeObject2];
 }
 
 - (void)tearDownGL
@@ -114,16 +75,12 @@
 
 - (void)update
 {
-    [_gameManager.cameraObject.transformationController rotateY:(self.timeSinceLastUpdate * 0.5f)];
-    //[_gameManager.cameraObject.transformationController moveX:(self.timeSinceLastUpdate * 0.25f)];
-    //[_gameManager.cameraObject.transformationController moveY:(self.timeSinceLastUpdate * 0.25f)];
-    //[_shapeObject.transformationController rotateXYZ:(self.timeSinceLastUpdate * 0.5f)];
-    //[_shapeObject2.transformationController rotateXYZ:(self.timeSinceLastUpdate * 5.0f)];
+    [_game update:self.timeSinceLastUpdate];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    [self.gameManager update:self.timeSinceLastUpdate];
+    [_game render:self.timeSinceLastDraw];
 }
 
 @end

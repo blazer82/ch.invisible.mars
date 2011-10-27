@@ -54,6 +54,10 @@
 		2E0345381455F96F0034B397 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2E03450F1455F4440034B397 /* Shader.vsh */; };
 		2E03453A1455FB8C0034B397 /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0345391455FB8C0034B397 /* terrain.png */; };
 		2E03453C1455FB950034B397 /* terrain.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2E03453B1455FB950034B397 /* terrain.obj */; };
+		2EC1BED11459F4DD0044C8CF /* IECameraNode_Perspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */; };
+		2EC1BED41459F4EB0044C8CF /* IECameraNode_Ortho.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */; };
+		2EC1BED91459F6900044C8CF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED81459F6900044C8CF /* Game.m */; };
+		2EC1BEDC1459FA470044C8CF /* InputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BEDB1459FA470044C8CF /* InputManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +138,15 @@
 		2E0345351455F8E30034B397 /* cube2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cube2.png; sourceTree = "<group>"; };
 		2E0345391455FB8C0034B397 /* terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = terrain.png; sourceTree = "<group>"; };
 		2E03453B1455FB950034B397 /* terrain.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = terrain.obj; sourceTree = "<group>"; };
+		2EC1BECF1459F4DD0044C8CF /* IECameraNode_Perspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Perspective.h; path = IECameraNode/IECameraNode_Perspective.h; sourceTree = "<group>"; };
+		2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IECameraNode_Perspective.m; path = IECameraNode/IECameraNode_Perspective.m; sourceTree = "<group>"; };
+		2EC1BED21459F4EB0044C8CF /* IECameraNode_Ortho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Ortho.h; path = IECameraNode/IECameraNode_Ortho.h; sourceTree = "<group>"; };
+		2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IECameraNode_Ortho.m; path = IECameraNode/IECameraNode_Ortho.m; sourceTree = "<group>"; };
+		2EC1BED51459F5000044C8CF /* IECameraNode_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Protocol.h; path = IECameraNode/IECameraNode_Protocol.h; sourceTree = "<group>"; };
+		2EC1BED71459F6900044C8CF /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Game/Game.h; sourceTree = "<group>"; };
+		2EC1BED81459F6900044C8CF /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Game/Game.m; sourceTree = "<group>"; };
+		2EC1BEDA1459FA470044C8CF /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputManager.h; path = Game/InputManager.h; sourceTree = "<group>"; };
+		2EC1BEDB1459FA470044C8CF /* InputManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputManager.m; path = Game/InputManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,17 +199,18 @@
 		2E0344B41455F36D0034B397 /* Mars */ = {
 			isa = PBXGroup;
 			children = (
+				2E0344BD1455F36D0034B397 /* AppDelegate.h */,
+				2E0344BE1455F36D0034B397 /* AppDelegate.m */,
 				2E0344CF1455F4440034B397 /* Engine */,
+				2EC1BED61459F6630044C8CF /* Game */,
+				2E0344C01455F36D0034B397 /* MainStoryboard.storyboard */,
 				2E03450B1455F4440034B397 /* Models */,
 				2E03450C1455F4440034B397 /* Resources */,
 				2E03450D1455F4440034B397 /* Shaders */,
+				2E0344B51455F36D0034B397 /* Supporting Files */,
 				2E0345101455F4440034B397 /* Textures */,
-				2E0344BD1455F36D0034B397 /* AppDelegate.h */,
-				2E0344BE1455F36D0034B397 /* AppDelegate.m */,
-				2E0344C01455F36D0034B397 /* MainStoryboard.storyboard */,
 				2E0344C71455F36D0034B397 /* ViewController.h */,
 				2E0344C81455F36D0034B397 /* ViewController.m */,
-				2E0344B51455F36D0034B397 /* Supporting Files */,
 			);
 			path = Mars;
 			sourceTree = "<group>";
@@ -308,6 +322,7 @@
 		2E0345001455F4440034B397 /* IESceneNode */ = {
 			isa = PBXGroup;
 			children = (
+				2EC1BEC71459F4740044C8CF /* IECameraNode */,
 				2E0345011455F4440034B397 /* IECameraNode.h */,
 				2E0345021455F4440034B397 /* IECameraNode.m */,
 				2E0345031455F4440034B397 /* IEGroupNode.h */,
@@ -354,6 +369,29 @@
 				2E03452F1455F7240034B397 /* basestation.png */,
 			);
 			path = Textures;
+			sourceTree = "<group>";
+		};
+		2EC1BEC71459F4740044C8CF /* IECameraNode */ = {
+			isa = PBXGroup;
+			children = (
+				2EC1BECF1459F4DD0044C8CF /* IECameraNode_Perspective.h */,
+				2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */,
+				2EC1BED21459F4EB0044C8CF /* IECameraNode_Ortho.h */,
+				2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */,
+				2EC1BED51459F5000044C8CF /* IECameraNode_Protocol.h */,
+			);
+			name = IECameraNode;
+			sourceTree = "<group>";
+		};
+		2EC1BED61459F6630044C8CF /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				2EC1BED71459F6900044C8CF /* Game.h */,
+				2EC1BED81459F6900044C8CF /* Game.m */,
+				2EC1BEDA1459FA470044C8CF /* InputManager.h */,
+				2EC1BEDB1459FA470044C8CF /* InputManager.m */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,6 +495,10 @@
 				2E03452A1455F4440034B397 /* IESceneNode.m in Sources */,
 				2E03452B1455F4440034B397 /* Shader.fsh in Sources */,
 				2E03452C1455F4440034B397 /* Shader.vsh in Sources */,
+				2EC1BED11459F4DD0044C8CF /* IECameraNode_Perspective.m in Sources */,
+				2EC1BED41459F4EB0044C8CF /* IECameraNode_Ortho.m in Sources */,
+				2EC1BED91459F6900044C8CF /* Game.m in Sources */,
+				2EC1BEDC1459FA470044C8CF /* InputManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +612,7 @@
 				2E0344CE1455F36E0034B397 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
