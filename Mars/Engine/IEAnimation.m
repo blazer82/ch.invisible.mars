@@ -66,7 +66,15 @@
         float diff = _fromToDiff * (timeSinceLastUpdate / _duration);
         
         _diffSoFar += diff;
-        _valueSoFar = _fromValue + _diffSoFar;
+        
+        if ((diff > 0.0f && _diffSoFar > _fromToDiff) || (diff < 0.0f && _diffSoFar < _fromToDiff))
+        {
+            _valueSoFar = _toValue;
+        }
+        else
+        {
+            _valueSoFar = _fromValue + _diffSoFar;
+        }
         
         if (_incremental)
         {

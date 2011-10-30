@@ -130,6 +130,7 @@
 {
     IEAnimation *animation = [[IEAnimation alloc] initWithTarget:_cameraObject.cameraNode action:@selector(zoom:) methodSignature:[IECameraNode instanceMethodSignatureForSelector:@selector(zoom:)] fromValue:_cameraObject.cameraNode.zoomFactor toValue:zoomFactor];
     animation.incremental = NO;
+    animation.duration = 0.2f;
     [_gameManager registerAnimation:animation];
 }
 
