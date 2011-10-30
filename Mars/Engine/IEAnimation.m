@@ -21,6 +21,8 @@
 @property (nonatomic) float toValue;
 @property (nonatomic, strong) NSInvocation *invocation;
 
+- (float)getEasedDiff:(float)timeSinceLastUpdate;
+
 @end
 
 @implementation IEAnimation
@@ -63,7 +65,8 @@
 {
     if (_timeSinceStart < _duration)
     {
-        float diff = _fromToDiff * (timeSinceLastUpdate / _duration);
+        //float diff = _fromToDiff * (timeSinceLastUpdate / _duration);
+        float diff = [self getEasedDiff:timeSinceLastUpdate];
         
         _diffSoFar += diff;
         
@@ -112,6 +115,15 @@
     }
     
     _timeSinceStart += timeSinceLastUpdate;
+}
+
+- (float)getEasedDiff:(float)timeSinceLastUpdate
+{
+    float x = ((_timeSinceStart + timeSinceLastUpdate) / _duration) * 10.0f;
+    float y = logf(x + 1.0) * 4.1f;
+    float diff = _fromToDiff * (y / 10.0f);
+    diff = diff - _diffSoFar;
+    return diff;
 }
 
 @end
