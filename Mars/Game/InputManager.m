@@ -8,12 +8,16 @@
 
 #import "InputManager.h"
 #import "IEGameManager.h"
+#import "IEMath.h"
 
 @interface InputManager ()
 {
     float _minZoom;
     float _maxZoom;
+    float _minZoomBounce;
+    float _maxZoomBounce;
     
+    float _virtualZoom;
     float _autoZoom;
     
     CGPoint _panStart;
@@ -43,7 +47,9 @@
     self = [super init];
     
     _minZoom = 0.5f;
+    _minZoomBounce = 0.1f;
     _maxZoom = 2.5f;
+    _maxZoomBounce = 0.5f;
     
     _autoZoom = _maxZoom;
     
@@ -93,25 +99,61 @@
     {
         CGFloat scale = sender.scale;
         
+        if (!_virtualZoom)
+        {
+            _virtualZoom = _cameraObject.cameraNode.zoomFactor;
+        }
+        
         if (sender.state == UIGestureRecognizerStateBegan)
         {
             _scaleStart = scale;
         }
         else if (sender.state == UIGestureRecognizerStateChanged)
         {
-            float scaleAbs = _cameraObject.cameraNode.zoomFactor * (scale / _scaleStart);
+            float scaleAbs = _virtualZoom * (scale / _scaleStart);
+            _virtualZoom = scaleAbs;
             
-            if (scaleAbs >= _minZoom && scaleAbs <= _maxZoom)
+            if (scaleAbs > _maxZoom)
             {
-                [_cameraObject.cameraNode zoom:scaleAbs];
+                float diff = scaleAbs - _maxZoom;
+                diff = [IEMath easeX:diff scale:_maxZoomBounce];
+                scaleAbs = _maxZoom + diff;
+            }
+            else if (scaleAbs < _minZoom)
+            {
+                float diff = _minZoom - scaleAbs;
+                diff = [IEMath easeX:diff scale:_minZoomBounce];
+                scaleAbs = _minZoom - diff;
             }
             
+            [_cameraObject.cameraNode zoom:scaleAbs];
+            
             _scaleStart = scale;
+        }
+        else if (sender.state == UIGestureRecognizerStateEnded)
+        {
+            if (_cameraObject.cameraNode.zoomFactor > _maxZoom)
+            {
+                _virtualZoom = _maxZoom;
+            }
+            else if (_cameraObject.cameraNode.zoomFactor < _minZoom)
+            {
+                _virtualZoom = _minZoom;
+            }
+            
+            // bounce back animation
+            if (_virtualZoom != _cameraObject.cameraNode.zoomFactor)
+            {
+                IEAnimation *animation = [[IEAnimation alloc] initWithTarget:_cameraObject.cameraNode action:@selector(zoom:) methodSignature:[IECameraNode instanceMethodSignatureForSelector:@selector(zoom:)] fromValue:_cameraObject.cameraNode.zoomFactor toValue:_virtualZoom];
+                animation.incremental = NO;
+                animation.duration = 0.2f;
+                [_gameManager registerAnimation:animation];
+            }
         }
     }
 }
 
-- (void)handleDblTapGesture:(UIPinchGestureRecognizer *)sender
+- (void)handleDblTapGesture:(UITapGestureRecognizer *)sender
 {
     if (self.cameraObject)
     {

@@ -30,16 +30,12 @@
 @synthesize motionManager = _motionManager;
 @synthesize useDeviceMotion = _useDeviceMotion;
 
-static IEGameManager *_sharedManager = nil;
-
 + (IEGameManager*)sharedManager
 {
-    if (_sharedManager == nil)
-    {
-        _sharedManager = [[super allocWithZone:NULL] init];
-    }
-    
-    return _sharedManager;
+    static dispatch_once_t once;
+    static IEGameManager *sharedManager;
+    dispatch_once(&once, ^ { sharedManager = [[self alloc] init]; });
+    return sharedManager;
 }
 
 + (id)copyWithZone:(NSZone *)zone

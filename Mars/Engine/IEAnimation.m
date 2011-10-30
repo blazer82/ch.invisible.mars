@@ -7,6 +7,7 @@
 //
 
 #import "IEAnimation.h"
+#import "IEMath.h"
 
 @interface IEAnimation ()
 {
@@ -119,11 +120,16 @@
 
 - (float)getEasedDiff:(float)timeSinceLastUpdate
 {
-    float x = ((_timeSinceStart + timeSinceLastUpdate) / _duration) * 10.0f;
+    float easedTime = [IEMath easeX:(_timeSinceStart + timeSinceLastUpdate) scale:_duration];
+    float diff = _fromToDiff * (easedTime / _duration);
+    diff = diff - _diffSoFar;
+    return diff;
+    
+    /*float x = ((_timeSinceStart + timeSinceLastUpdate) / _duration) * 10.0f;
     float y = logf(x + 1.0) * 4.1f;
     float diff = _fromToDiff * (y / 10.0f);
     diff = diff - _diffSoFar;
-    return diff;
+    return diff;*/
 }
 
 @end
