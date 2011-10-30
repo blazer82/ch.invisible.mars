@@ -99,14 +99,10 @@
     {
         CGFloat scale = sender.scale;
         
-        if (!_virtualZoom)
-        {
-            _virtualZoom = _cameraObject.cameraNode.zoomFactor;
-        }
-        
         if (sender.state == UIGestureRecognizerStateBegan)
         {
             _scaleStart = scale;
+            _virtualZoom = _cameraObject.cameraNode.zoomFactor;
         }
         else if (sender.state == UIGestureRecognizerStateChanged)
         {
