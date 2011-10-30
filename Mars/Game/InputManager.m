@@ -12,11 +12,17 @@
 
 @interface InputManager ()
 {
+    float _maxPanX;
+    float _maxPanZ;
+    float _panBounce;
+    
     float _minZoom;
     float _maxZoom;
     float _minZoomBounce;
     float _maxZoomBounce;
     
+    float _virtualX;
+    float _virtualZ;
     float _virtualZoom;
     float _autoZoom;
     
@@ -45,6 +51,10 @@
 - (id)initWithView:(GLKView *)view
 {
     self = [super init];
+    
+    _maxPanX = 40.0f;
+    _maxPanZ = 40.0f;
+    _panBounce = 5.0f;
     
     _minZoom = 0.5f;
     _minZoomBounce = 0.1f;
@@ -78,6 +88,8 @@
         if (sender.state == UIGestureRecognizerStateBegan)
         {
             _panStart = translate;
+            _virtualX = self.cameraObject.transformationController.transformation.position.x;
+            _virtualZ = self.cameraObject.transformationController.transformation.position.z;
         }
         else if (sender.state == UIGestureRecognizerStateChanged)
         {
@@ -85,10 +97,80 @@
             panDiff.x = _panStart.x - translate.x;
             panDiff.y = _panStart.y - translate.y;
             
-            [_cameraObject.transformationController moveX:-(panDiff.x / (_cameraObject.cameraNode.zoomFactor * 20.0f))];
-            [_cameraObject.transformationController moveZ:-(panDiff.y / (_cameraObject.cameraNode.zoomFactor * 20.0f))];
+            float moveX = -(panDiff.x / (_cameraObject.cameraNode.zoomFactor * 20.0f));
+            float moveZ = -(panDiff.y / (_cameraObject.cameraNode.zoomFactor * 20.0f));
+            
+            _virtualX += moveX;
+            _virtualZ += moveZ;
+            
+            if (_virtualX + moveX > _maxPanX)
+            {
+                float diff = _virtualX + moveX - _maxPanX; 
+                diff = [IEMath easeX:diff scale:_panBounce];
+                moveX = _maxPanX + diff - self.cameraObject.transformationController.transformation.position.x;
+            }
+            else if (_virtualX + moveX < -_maxPanX)
+            {
+                float diff = -_maxPanX - (_virtualX + moveX);
+                diff = [IEMath easeX:diff scale:_panBounce];
+                moveX = -_maxPanX - diff - self.cameraObject.transformationController.transformation.position.x;
+            }
+            
+            if (_virtualZ + moveZ > _maxPanZ)
+            {
+                float diff = _virtualZ + moveZ - _maxPanZ; 
+                diff = [IEMath easeX:diff scale:_panBounce];
+                moveZ = _maxPanZ + diff - self.cameraObject.transformationController.transformation.position.z;
+            }
+            else if (_virtualZ + moveZ < -_maxPanZ)
+            {
+                float diff = -_maxPanZ - (_virtualZ + moveX);
+                diff = [IEMath easeX:diff scale:_panBounce];
+                moveZ = -_maxPanZ - diff - self.cameraObject.transformationController.transformation.position.z;
+            } 
+            
+            [_cameraObject.transformationController moveX:moveX];
+            [_cameraObject.transformationController moveZ:moveZ];
             
             _panStart = translate;
+        }
+        else if (sender.state == UIGestureRecognizerStateEnded)
+        {
+            if (self.cameraObject.transformationController.transformation.position.x > _maxPanX)
+            {
+                _virtualX = _maxPanX;
+            }
+            else if (self.cameraObject.transformationController.transformation.position.x < -_maxPanX)
+            {
+                _virtualX = -_maxPanX;
+            }
+            
+            if (self.cameraObject.transformationController.transformation.position.z > _maxPanZ)
+            {
+                _virtualZ = _maxPanZ;
+            }
+            else if (self.cameraObject.transformationController.transformation.position.z < -_maxPanZ)
+            {
+                _virtualZ = -_maxPanZ;
+            }
+            
+            // bounce back animation x
+            if (_virtualX != self.cameraObject.transformationController.transformation.position.x)
+            {
+                IEAnimation *animation = [[IEAnimation alloc] initWithTarget:self.cameraObject.transformationController action:@selector(moveX:) methodSignature:[IETransformationController instanceMethodSignatureForSelector:@selector(moveX:)] fromValue:self.cameraObject.transformationController.transformation.position.x toValue:_virtualX];
+                animation.incremental = YES;
+                animation.duration = 0.2f;
+                [_gameManager registerAnimation:animation];
+            }
+            
+            // bounce back animation y
+            if (_virtualZ != self.cameraObject.transformationController.transformation.position.z)
+            {
+                IEAnimation *animation = [[IEAnimation alloc] initWithTarget:self.cameraObject.transformationController action:@selector(moveZ:) methodSignature:[IETransformationController instanceMethodSignatureForSelector:@selector(moveZ:)] fromValue:self.cameraObject.transformationController.transformation.position.z toValue:_virtualZ];
+                animation.incremental = YES;
+                animation.duration = 0.2f;
+                [_gameManager registerAnimation:animation];
+            }
         }
     }
 }

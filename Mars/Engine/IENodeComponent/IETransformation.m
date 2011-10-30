@@ -11,12 +11,18 @@
 @implementation IETransformation
 
 @synthesize matrix = _matrix;
+@synthesize position = _position;
+@synthesize rotation = _rotation;
+@synthesize scale = _scale;
 
 - (id)init
 {
     self = [super init];
     
     _matrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 0.0f);
+    _position = GLKVector3Make(0.0f, 0.0f, 0.0f);
+    _rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+    _scale = GLKVector3Make(0.0f, 0.0f, 0.0f);
     
     return self;
 }
@@ -26,6 +32,9 @@
     self = [super init];
     
     _matrix = matrix;
+    _position = GLKVector3Make(0.0f, 0.0f, 0.0f);
+    _rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+    _scale = GLKVector3Make(0.0f, 0.0f, 0.0f);
     
     return  self;
 }

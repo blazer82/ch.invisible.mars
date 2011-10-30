@@ -11,6 +11,9 @@
 @interface IETransformation : IENodeComponent
 
 @property (nonatomic) GLKMatrix4 matrix;
+@property (nonatomic) GLKVector3 position;
+@property (nonatomic) GLKVector3 rotation;
+@property (nonatomic) GLKVector3 scale;
 
 - (id)initWithMatrix:(GLKMatrix4)matrix;
 
