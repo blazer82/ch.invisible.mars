@@ -12,6 +12,7 @@
 #import "IECameraObject.h"
 #import "IEShapeObject.h"
 #import "IEParticleSystemObject.h"
+#import "IEAnimation.h"
 
 @interface IEGameManager : NSObject
 
@@ -26,5 +27,6 @@
 - (void)render:(float)timeSinceLastRender;
 - (void)registerShapeObject:(IEShapeObject*)shapeObject;
 - (void)registerParticleSystem:(IEParticleSystemObject*)particleSystem;
+- (void)registerAnimation:(IEAnimation*)animation;
 
 @end

@@ -13,6 +13,7 @@
     
 }
 @property (nonatomic, strong) NSMutableArray *particleSystems;
+@property (nonatomic, strong) NSMutableArray *animations;
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic) BOOL useDeviceMotion;
 
@@ -23,6 +24,7 @@
 @implementation IEGameManager
 
 @synthesize particleSystems = _particleSystems;
+@synthesize animations = _animations;
 @synthesize graphicsManager = _graphicsManager;
 @synthesize cameraObject = _cameraObject;
 @synthesize motionManager = _motionManager;
@@ -51,6 +53,7 @@ static IEGameManager *_sharedManager = nil;
     
     _useDeviceMotion = NO;
     _particleSystems = [[NSMutableArray alloc] init];
+    _animations = [[NSMutableArray alloc] init];
     
     return self;
 }
@@ -94,6 +97,27 @@ static IEGameManager *_sharedManager = nil;
     {
         [particleSystem update:timeSinceLastUpdate];
     }
+    
+    // remove outdated animations
+    NSMutableArray *garbageCollector = [[NSMutableArray alloc] init];
+    
+    for (IEAnimation *animation in _animations)
+    {
+        if (animation.done)
+        {
+            [garbageCollector addObject:animation];
+        }
+    }
+    for (IEAnimation *animation in garbageCollector)
+    {
+        [_animations removeObject:animation];
+    }
+    
+    // update animation
+    for (IEAnimation *animation in _animations)
+    {
+        [animation update:timeSinceLastUpdate];
+    }
 }
 
 - (void)render:(float)timeSinceLastRender
@@ -113,6 +137,11 @@ static IEGameManager *_sharedManager = nil;
 - (void)registerParticleSystem:(IEParticleSystemObject *)particleSystem
 {
     [_particleSystems addObject:particleSystem];
+}
+
+- (void)registerAnimation:(IEAnimation *)animation
+{
+    [_animations addObject:animation];
 }
 
 - (void)useMotionManager

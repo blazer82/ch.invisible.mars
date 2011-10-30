@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 #import "IECameraObject.h"
+#import "IEAnimation.h"
 
 @interface InputManager : NSObject
 
@@ -17,5 +18,6 @@
 - (id)initWithView:(GLKView *)view;
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer *)sender;
 - (IBAction)handlePinchGesture:(UIPinchGestureRecognizer *)sender;
+- (IBAction)handleDblTapGesture:(UIPinchGestureRecognizer *)sender;
 
 @end

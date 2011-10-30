@@ -26,7 +26,7 @@
     self = [super init];
     
     _aspect = aspect;
-    _zoomMultiplier = 10.0f;
+    _zoomMultiplier = 20.0f;
     
     [self setupProjectionMatrix];
     
