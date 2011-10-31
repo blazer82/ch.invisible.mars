@@ -52,8 +52,8 @@
 {
     self = [super init];
     
-    _maxPanX = 40.0f;
-    _maxPanZ = 40.0f;
+    _maxPanX = 30.0f;
+    _maxPanZ = 30.0f;
     _panBounce = 5.0f;
     
     _minZoom = 0.5f;
@@ -106,28 +106,40 @@
             if (_virtualX + moveX > _maxPanX)
             {
                 float diff = _virtualX + moveX - _maxPanX; 
-                diff = [IEMath easeX:diff scale:_panBounce];
-                moveX = _maxPanX + diff - self.cameraObject.transformationController.transformation.position.x;
+                if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
+                {
+                    diff = [IEMath easeX:diff scale:_panBounce];
+                    moveX = _maxPanX + diff - self.cameraObject.transformationController.transformation.position.x;
+                }
             }
             else if (_virtualX + moveX < -_maxPanX)
             {
                 float diff = -_maxPanX - (_virtualX + moveX);
-                diff = [IEMath easeX:diff scale:_panBounce];
-                moveX = -_maxPanX - diff - self.cameraObject.transformationController.transformation.position.x;
+                if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
+                {
+                    diff = [IEMath easeX:diff scale:_panBounce];
+                    moveX = -_maxPanX - diff - self.cameraObject.transformationController.transformation.position.x;
+                }
             }
             
             if (_virtualZ + moveZ > _maxPanZ)
             {
                 float diff = _virtualZ + moveZ - _maxPanZ; 
-                diff = [IEMath easeX:diff scale:_panBounce];
-                moveZ = _maxPanZ + diff - self.cameraObject.transformationController.transformation.position.z;
+                if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
+                {
+                    diff = [IEMath easeX:diff scale:_panBounce];
+                    moveZ = _maxPanZ + diff - self.cameraObject.transformationController.transformation.position.z;
+                }
             }
             else if (_virtualZ + moveZ < -_maxPanZ)
             {
                 float diff = -_maxPanZ - (_virtualZ + moveX);
-                diff = [IEMath easeX:diff scale:_panBounce];
-                moveZ = -_maxPanZ - diff - self.cameraObject.transformationController.transformation.position.z;
-            } 
+                if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
+                {
+                    diff = [IEMath easeX:diff scale:_panBounce];
+                    moveZ = -_maxPanZ - diff - self.cameraObject.transformationController.transformation.position.z;
+                }
+            }
             
             [_cameraObject.transformationController moveX:moveX];
             [_cameraObject.transformationController moveZ:moveZ];

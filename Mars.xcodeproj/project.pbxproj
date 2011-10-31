@@ -56,6 +56,10 @@
 		2E03453C1455FB950034B397 /* terrain.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2E03453B1455FB950034B397 /* terrain.obj */; };
 		2E07BD99145CD6680026F385 /* IEAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E07BD98145CD6680026F385 /* IEAnimation.m */; };
 		2E07BD9D145DEB2C0026F385 /* IEMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E07BD9C145DEB2C0026F385 /* IEMath.m */; };
+		2E07BDA9145E24DF0026F385 /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDA8145E24DF0026F385 /* app-icon.png */; };
+		2E07BDAB145E24E80026F385 /* app-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAA145E24E80026F385 /* app-icon-retina.png */; };
+		2E07BDAD145E24EE0026F385 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAC145E24EE0026F385 /* Default.png */; };
+		2E07BDAF145E24F20026F385 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAE145E24F20026F385 /* Default@2x.png */; };
 		2EC1BED11459F4DD0044C8CF /* IECameraNode_Perspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */; };
 		2EC1BED41459F4EB0044C8CF /* IECameraNode_Ortho.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */; };
 		2EC1BED91459F6900044C8CF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED81459F6900044C8CF /* Game.m */; };
@@ -144,6 +148,10 @@
 		2E07BD98145CD6680026F385 /* IEAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEAnimation.m; sourceTree = "<group>"; };
 		2E07BD9B145DEB2B0026F385 /* IEMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEMath.h; sourceTree = "<group>"; };
 		2E07BD9C145DEB2C0026F385 /* IEMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IEMath.m; sourceTree = "<group>"; };
+		2E07BDA8145E24DF0026F385 /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon.png"; path = "../../app-icon.png"; sourceTree = "<group>"; };
+		2E07BDAA145E24E80026F385 /* app-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon-retina.png"; path = "../../app-icon-retina.png"; sourceTree = "<group>"; };
+		2E07BDAC145E24EE0026F385 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
+		2E07BDAE145E24F20026F385 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		2EC1BECF1459F4DD0044C8CF /* IECameraNode_Perspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Perspective.h; path = IECameraNode/IECameraNode_Perspective.h; sourceTree = "<group>"; };
 		2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IECameraNode_Perspective.m; path = IECameraNode/IECameraNode_Perspective.m; sourceTree = "<group>"; };
 		2EC1BED21459F4EB0044C8CF /* IECameraNode_Ortho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Ortho.h; path = IECameraNode/IECameraNode_Ortho.h; sourceTree = "<group>"; };
@@ -358,6 +366,10 @@
 		2E03450C1455F4440034B397 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E07BDAA145E24E80026F385 /* app-icon-retina.png */,
+				2E07BDA8145E24DF0026F385 /* app-icon.png */,
+				2E07BDAC145E24EE0026F385 /* Default.png */,
+				2E07BDAE145E24F20026F385 /* Default@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -464,6 +476,10 @@
 				2E0345361455F8E30034B397 /* cube2.png in Resources */,
 				2E03453A1455FB8C0034B397 /* terrain.png in Resources */,
 				2E03453C1455FB950034B397 /* terrain.obj in Resources */,
+				2E07BDA9145E24DF0026F385 /* app-icon.png in Resources */,
+				2E07BDAB145E24E80026F385 /* app-icon-retina.png in Resources */,
+				2E07BDAD145E24EE0026F385 /* Default.png in Resources */,
+				2E07BDAF145E24F20026F385 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

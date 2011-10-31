@@ -49,7 +49,7 @@
     [_gameManager.cameraObject.transformationController rotateX:GLKMathDegreesToRadians(60)];
     //[_gameManager.cameraObject.transformationController moveX:17.1f];
     //[_gameManager.cameraObject.transformationController moveZ:-5.6f];
-    [_gameManager.cameraObject.transformationController moveY:-10.0f];
+    [_gameManager.cameraObject.transformationController moveY:-20.0f];
     
     _shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"Shader" andTextureNamed:@"terrain"];
     [_gameManager registerShapeObject:_shapeObject];
