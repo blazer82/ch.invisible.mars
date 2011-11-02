@@ -190,4 +190,9 @@
     return YES;
 }
 
+- (void)dealloc
+{
+    self.shader = nil;
+}
+
 @end

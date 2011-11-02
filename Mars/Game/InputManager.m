@@ -266,4 +266,14 @@
     [_gameManager registerAnimation:animation];
 }
 
+- (void)dealloc
+{
+    self.cameraObject = nil;
+    self.gameManager = nil;
+    self.view = nil;
+    self.panGestureRecognizer = nil;
+    self.pinchGestureRecognizer = nil;
+    self.dblTapGestureRecognizer = nil;
+}
+
 @end

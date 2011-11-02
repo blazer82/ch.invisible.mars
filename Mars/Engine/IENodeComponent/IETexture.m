@@ -15,4 +15,9 @@
 @synthesize width = _width;
 @synthesize height = _height;
 
+- (void)dealloc
+{
+    free(_imageData);
+}
+
 @end

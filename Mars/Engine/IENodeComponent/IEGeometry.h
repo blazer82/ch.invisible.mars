@@ -8,6 +8,12 @@
 
 #import "IENodeComponent.h"
 
+typedef struct
+{
+    GLKVector3 min;
+    GLKVector3 max;
+} IEBoundingBox;
+
 @interface IEGeometry : IENodeComponent
 
 @property (nonatomic) GLfloat *vertexData;
@@ -15,5 +21,6 @@
 @property (nonatomic) GLsizei dataLength;
 @property (nonatomic) GLuint vertexArray;
 @property (nonatomic) GLuint vertexBuffer;
+@property (nonatomic) IEBoundingBox boundingBox;
 
 @end

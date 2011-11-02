@@ -215,6 +215,15 @@ typedef struct
     _geometry.dataSize   = sizeof(GLfloat) * self.faceCount * 24; // 24 floats per face
     _geometry.vertexData = malloc(_geometry.dataSize);
     
+    // prepare bounding box
+    IEBoundingBox boundingBox;
+    boundingBox.min.x = 0.0f;
+    boundingBox.min.y = 0.0f;
+    boundingBox.min.z = 0.0f;
+    boundingBox.max.x = 0.0f;
+    boundingBox.max.y = 0.0f;
+    boundingBox.max.z = 0.0f;
+    
     for (ushort faceIndex = 0; faceIndex < self.faceCount; faceIndex++)
     {
         _geometry.vertexData[(faceIndex * 24) + 0] = self.vertices[self.faces[faceIndex].v1].x;
@@ -243,6 +252,38 @@ typedef struct
         _geometry.vertexData[(faceIndex * 24) + 21] = self.normals[self.faces[faceIndex].n3].x;
         _geometry.vertexData[(faceIndex * 24) + 22] = self.normals[self.faces[faceIndex].n3].y;
         _geometry.vertexData[(faceIndex * 24) + 23] = self.normals[self.faces[faceIndex].n3].z;
+    }
+    
+    // compute the bounding box
+    for (int vIndex = 0; vIndex < self.vertexCount; vIndex++)
+    {
+        // min
+        if (self.vertices[vIndex].x < boundingBox.min.x)
+        {
+            boundingBox.min.x = self.vertices[vIndex].x;
+        }
+        if (self.vertices[vIndex].y < boundingBox.min.y)
+        {
+            boundingBox.min.y = self.vertices[vIndex].y;
+        }
+        if (self.vertices[vIndex].z < boundingBox.min.z)
+        {
+            boundingBox.min.z = self.vertices[vIndex].z;
+        }
+        
+        // max
+        if (self.vertices[vIndex].x > boundingBox.max.x)
+        {
+            boundingBox.max.x = self.vertices[vIndex].x;
+        }
+        if (self.vertices[vIndex].y > boundingBox.max.y)
+        {
+            boundingBox.max.y = self.vertices[vIndex].y;
+        }
+        if (self.vertices[vIndex].z > boundingBox.max.z)
+        {
+            boundingBox.max.z = self.vertices[vIndex].z;
+        }
     }
     
     node.geometry = _geometry;

@@ -30,4 +30,13 @@
     return self;
 }
 
+- (void)dealloc
+{
+    if (_program)
+    {
+        glDeleteProgram(_program);
+        _program = 0;
+    }
+}
+
 @end

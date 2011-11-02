@@ -81,4 +81,11 @@
     _texture.texture = texture;
 }
 
+- (void)dealloc
+{
+    self.geometry = nil;
+    self.shader = nil;
+    self.texture = nil;
+}
+
 @end

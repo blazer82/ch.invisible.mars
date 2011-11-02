@@ -17,4 +17,9 @@
     _cameraChild = cameraNode;
 }
 
+- (void)dealloc
+{
+    self.cameraChild = nil;
+}
+
 @end

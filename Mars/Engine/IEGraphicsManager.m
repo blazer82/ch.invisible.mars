@@ -56,4 +56,9 @@ static IEGraphicsManager_OpenGLES2 *_manager = nil;
     [_manager renderShapeNode:shapeNode forCameraNode:cameraNode];
 }
 
+- (void)dealloc
+{
+    self.sceneGraph = nil;
+}
+
 @end

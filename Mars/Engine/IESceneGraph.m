@@ -21,4 +21,9 @@
     return self;
 }
 
+- (void)dealloc
+{
+    self.rootNode = nil;
+}
+
 @end

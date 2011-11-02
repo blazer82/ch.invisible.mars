@@ -38,4 +38,22 @@
     return self;
 }
 
+- (id)initFrustumWithView:(GLKView *)view
+{
+    self = [super init];
+    
+    float aspect = fabsf(view.bounds.size.width / view.bounds.size.height);
+    
+    _cameraNode = [[IECameraNode_Frustum alloc] initWithAspect:aspect];
+    
+    self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    self.cameraNode = nil;
+}
+
 @end

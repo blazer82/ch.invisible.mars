@@ -31,4 +31,9 @@
     [self.shapeChildren removeObject:shapeNode];
 }
 
+- (void)dealloc
+{
+    self.shapeChildren = nil;
+}
+
 @end

@@ -12,4 +12,9 @@
 
 @synthesize transformationController = _transformationController;
 
+- (void)dealloc
+{
+    self.transformationController = nil;
+}
+
 @end

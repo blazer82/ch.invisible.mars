@@ -63,8 +63,8 @@
 
 - (void)setupCameraWithView:(GLKView *)view
 {
-    _cameraObject = [[IECameraObject alloc] initOrthoWithView:view];
-    //[_cameraObject.transformationController moveY:-2.0f];
+    //_cameraObject = [[IECameraObject alloc] initOrthoWithView:view];
+    _cameraObject = [[IECameraObject alloc] initFrustumWithView:view];
     [_graphicsManager.sceneGraph.rootNode attachCameraChild:_cameraObject.cameraNode];
 }
 
@@ -146,6 +146,15 @@
     [_motionManager setDeviceMotionUpdateInterval:1.0f/60.0f];
     [_motionManager startDeviceMotionUpdates];
     _useDeviceMotion = YES;
+}
+
+- (void)dealloc
+{
+    self.graphicsManager = nil;
+    self.cameraObject = nil;
+    self.motionManager = nil;
+    self.particleSystems = nil;
+    self.animations = nil;
 }
 
 @end

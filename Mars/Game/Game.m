@@ -70,4 +70,10 @@
     [_gameManager render:timeSinceLastRender];
 }
 
+- (void)dealloc
+{
+    self.gameManager = nil;
+    self.inputManager = nil;
+}
+
 @end

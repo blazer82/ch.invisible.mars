@@ -277,4 +277,10 @@ typedef struct
     }
 }
 
+- (void)dealloc
+{
+    self.emitterShapeObject = nil;
+    self.emissionShapeObject = nil;
+}
+
 @end

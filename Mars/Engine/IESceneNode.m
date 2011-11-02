@@ -12,4 +12,9 @@
 
 @synthesize transformation = _transformation;
 
+- (void)dealloc
+{
+    self.transformation = nil;
+}
+
 @end

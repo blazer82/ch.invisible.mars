@@ -9,6 +9,7 @@
 #import "IEGameObject.h"
 #import "IECameraNode_Perspective.h"
 #import "IECameraNode_Ortho.h"
+#import "IECameraNode_Frustum.h"
 
 @interface IECameraObject : IEGameObject
 
@@ -16,5 +17,6 @@
 
 - (id)initPerspectiveWithView:(GLKView*)view;
 - (id)initOrthoWithView:(GLKView*)view;
+- (id)initFrustumWithView:(GLKView*)view;
 
 @end

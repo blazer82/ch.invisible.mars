@@ -91,4 +91,9 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
     //NSLog([NSString stringWithFormat:@"gl error: %i", glGetError()]);
 }
 
+- (void)dealloc
+{
+    self.context = nil;
+}
+
 @end

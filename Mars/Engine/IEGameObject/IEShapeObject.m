@@ -76,4 +76,12 @@
     self.transformationController.transformation.matrix = object.transformationController.transformation.matrix;
 }
 
+- (void)dealloc
+{
+    self.shapeNode = nil;
+    self.geometryController = nil;
+    self.shaderController = nil;
+    self.textureController = nil;
+}
+
 @end

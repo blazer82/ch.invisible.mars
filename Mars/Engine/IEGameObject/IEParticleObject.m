@@ -126,4 +126,9 @@
     }
 }
 
+- (void)dealloc
+{
+    self.shapeObject = nil;
+}
+
 @end

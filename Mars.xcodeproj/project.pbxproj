@@ -60,6 +60,7 @@
 		2E07BDAB145E24E80026F385 /* app-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAA145E24E80026F385 /* app-icon-retina.png */; };
 		2E07BDAD145E24EE0026F385 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAC145E24EE0026F385 /* Default.png */; };
 		2E07BDAF145E24F20026F385 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAE145E24F20026F385 /* Default@2x.png */; };
+		2E07BDB21461C4F00026F385 /* IECameraNode_Frustum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E07BDB11461C4EF0026F385 /* IECameraNode_Frustum.m */; };
 		2EC1BED11459F4DD0044C8CF /* IECameraNode_Perspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */; };
 		2EC1BED41459F4EB0044C8CF /* IECameraNode_Ortho.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */; };
 		2EC1BED91459F6900044C8CF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED81459F6900044C8CF /* Game.m */; };
@@ -152,6 +153,8 @@
 		2E07BDAA145E24E80026F385 /* app-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon-retina.png"; path = "../../app-icon-retina.png"; sourceTree = "<group>"; };
 		2E07BDAC145E24EE0026F385 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
 		2E07BDAE145E24F20026F385 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
+		2E07BDB01461C4EF0026F385 /* IECameraNode_Frustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Frustum.h; path = IECameraNode/IECameraNode_Frustum.h; sourceTree = "<group>"; };
+		2E07BDB11461C4EF0026F385 /* IECameraNode_Frustum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IECameraNode_Frustum.m; path = IECameraNode/IECameraNode_Frustum.m; sourceTree = "<group>"; };
 		2EC1BECF1459F4DD0044C8CF /* IECameraNode_Perspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Perspective.h; path = IECameraNode/IECameraNode_Perspective.h; sourceTree = "<group>"; };
 		2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IECameraNode_Perspective.m; path = IECameraNode/IECameraNode_Perspective.m; sourceTree = "<group>"; };
 		2EC1BED21459F4EB0044C8CF /* IECameraNode_Ortho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Ortho.h; path = IECameraNode/IECameraNode_Ortho.h; sourceTree = "<group>"; };
@@ -396,10 +399,12 @@
 		2EC1BEC71459F4740044C8CF /* IECameraNode */ = {
 			isa = PBXGroup;
 			children = (
-				2EC1BECF1459F4DD0044C8CF /* IECameraNode_Perspective.h */,
-				2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */,
+				2E07BDB01461C4EF0026F385 /* IECameraNode_Frustum.h */,
+				2E07BDB11461C4EF0026F385 /* IECameraNode_Frustum.m */,
 				2EC1BED21459F4EB0044C8CF /* IECameraNode_Ortho.h */,
 				2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */,
+				2EC1BECF1459F4DD0044C8CF /* IECameraNode_Perspective.h */,
+				2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */,
 				2EC1BED51459F5000044C8CF /* IECameraNode_Protocol.h */,
 			);
 			name = IECameraNode;
@@ -527,6 +532,7 @@
 				2EC1BEDC1459FA470044C8CF /* InputManager.m in Sources */,
 				2E07BD99145CD6680026F385 /* IEAnimation.m in Sources */,
 				2E07BD9D145DEB2C0026F385 /* IEMath.m in Sources */,
+				2E07BDB21461C4F00026F385 /* IECameraNode_Frustum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

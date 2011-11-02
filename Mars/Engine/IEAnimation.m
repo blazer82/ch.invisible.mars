@@ -132,4 +132,9 @@
     return diff;*/
 }
 
+- (void)dealloc
+{
+    self.invocation = nil;
+}
+
 @end

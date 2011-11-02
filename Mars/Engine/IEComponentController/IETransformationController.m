@@ -86,4 +86,9 @@
     _transformation.matrix = GLKMatrix4Scale(_transformation.matrix, factor, factor, factor);
 }
 
+- (void)dealloc
+{
+    self.transformation = nil;
+}
+
 @end

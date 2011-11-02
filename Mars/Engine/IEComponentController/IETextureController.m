@@ -90,4 +90,10 @@
     self.image = nil;
 }
 
+- (void)dealloc
+{
+    self.texture = nil;
+    [self freeImage];
+}
+
 @end
