@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) IECameraObject *cameraObject;
 
-- (id)initWithView:(GLKView *)view;
+- (id)initWithView:(GLKView *)view andCameraObject:(IECameraObject *)cameraObject;
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer *)sender;
 - (IBAction)handlePinchGesture:(UIPinchGestureRecognizer *)sender;
 - (IBAction)handleDblTapGesture:(UIPinchGestureRecognizer *)sender;

@@ -10,6 +10,7 @@
 
 @interface IEMath : NSObject
 
-+ (float)easeX:(float)x scale:(float)scale;
++ (float)easeIn:(float)value scale:(float)scale;
++ (float)easeOut:(float)value scale:(float)scale;
 
 @end

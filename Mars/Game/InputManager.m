@@ -16,8 +16,6 @@
     float _maxPanZ;
     float _panBounce;
     
-    float _minZoom;
-    float _maxZoom;
     float _minZoomBounce;
     float _maxZoomBounce;
     
@@ -48,20 +46,20 @@
 @synthesize pinchGestureRecognizer = _pinchGestureRecognizer;
 @synthesize dblTapGestureRecognizer = _dblTapGestureRecognizer;
 
-- (id)initWithView:(GLKView *)view
+- (id)initWithView:(GLKView *)view andCameraObject:(IECameraObject *)cameraObject
 {
     self = [super init];
+    
+    _cameraObject = cameraObject;
     
     _maxPanX = 30.0f;
     _maxPanZ = 30.0f;
     _panBounce = 5.0f;
     
-    _minZoom = 0.5f;
     _minZoomBounce = 0.1f;
-    _maxZoom = 2.5f;
     _maxZoomBounce = 0.5f;
     
-    _autoZoom = _maxZoom;
+    _autoZoom = _cameraObject.maxZoom;
     
     _gameManager = [IEGameManager sharedManager];
     _view = view;
@@ -108,7 +106,7 @@
                 float diff = _virtualX + moveX - _maxPanX; 
                 if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
                 {
-                    diff = [IEMath easeX:diff scale:_panBounce];
+                    diff = [IEMath easeOut:diff scale:_panBounce];
                     moveX = _maxPanX + diff - self.cameraObject.transformationController.transformation.position.x;
                 }
             }
@@ -117,7 +115,7 @@
                 float diff = -_maxPanX - (_virtualX + moveX);
                 if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
                 {
-                    diff = [IEMath easeX:diff scale:_panBounce];
+                    diff = [IEMath easeOut:diff scale:_panBounce];
                     moveX = -_maxPanX - diff - self.cameraObject.transformationController.transformation.position.x;
                 }
             }
@@ -127,7 +125,7 @@
                 float diff = _virtualZ + moveZ - _maxPanZ; 
                 if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
                 {
-                    diff = [IEMath easeX:diff scale:_panBounce];
+                    diff = [IEMath easeOut:diff scale:_panBounce];
                     moveZ = _maxPanZ + diff - self.cameraObject.transformationController.transformation.position.z;
                 }
             }
@@ -136,7 +134,7 @@
                 float diff = -_maxPanZ - (_virtualZ + moveX);
                 if (diff > 0.0f) // supposed to be impossible, but was causing some malfunction
                 {
-                    diff = [IEMath easeX:diff scale:_panBounce];
+                    diff = [IEMath easeOut:diff scale:_panBounce];
                     moveZ = -_maxPanZ - diff - self.cameraObject.transformationController.transformation.position.z;
                 }
             }
@@ -203,32 +201,32 @@
             float scaleAbs = _virtualZoom * (scale / _scaleStart);
             _virtualZoom = scaleAbs;
             
-            if (scaleAbs > _maxZoom)
+            if (scaleAbs > _cameraObject.maxZoom)
             {
-                float diff = scaleAbs - _maxZoom;
-                diff = [IEMath easeX:diff scale:_maxZoomBounce];
-                scaleAbs = _maxZoom + diff;
+                float diff = scaleAbs - _cameraObject.maxZoom;
+                diff = [IEMath easeOut:diff scale:_maxZoomBounce];
+                scaleAbs = _cameraObject.maxZoom + diff;
             }
-            else if (scaleAbs < _minZoom)
+            else if (scaleAbs < _cameraObject.minZoom)
             {
-                float diff = _minZoom - scaleAbs;
-                diff = [IEMath easeX:diff scale:_minZoomBounce];
-                scaleAbs = _minZoom - diff;
+                float diff = _cameraObject.minZoom - scaleAbs;
+                diff = [IEMath easeOut:diff scale:_minZoomBounce];
+                scaleAbs = _cameraObject.minZoom - diff;
             }
             
-            [_cameraObject.cameraNode zoom:scaleAbs];
+            [_cameraObject zoom:scaleAbs];
             
             _scaleStart = scale;
         }
         else if (sender.state == UIGestureRecognizerStateEnded)
         {
-            if (_cameraObject.cameraNode.zoomFactor > _maxZoom)
+            if (_cameraObject.cameraNode.zoomFactor > _cameraObject.maxZoom)
             {
-                _virtualZoom = _maxZoom;
+                _virtualZoom = _cameraObject.maxZoom;
             }
-            else if (_cameraObject.cameraNode.zoomFactor < _minZoom)
+            else if (_cameraObject.cameraNode.zoomFactor < _cameraObject.minZoom)
             {
-                _virtualZoom = _minZoom;
+                _virtualZoom = _cameraObject.minZoom;
             }
             
             // bounce back animation
@@ -260,7 +258,7 @@
 
 - (void)animateCameraZoom:(float)zoomFactor
 {
-    IEAnimation *animation = [[IEAnimation alloc] initWithTarget:_cameraObject.cameraNode action:@selector(zoom:) methodSignature:[IECameraNode instanceMethodSignatureForSelector:@selector(zoom:)] fromValue:_cameraObject.cameraNode.zoomFactor toValue:zoomFactor];
+    IEAnimation *animation = [[IEAnimation alloc] initWithTarget:_cameraObject action:@selector(zoom:) methodSignature:[IECameraObject instanceMethodSignatureForSelector:@selector(zoom:)] fromValue:_cameraObject.cameraNode.zoomFactor toValue:zoomFactor];
     animation.incremental = NO;
     animation.duration = 0.2f;
     [_gameManager registerAnimation:animation];

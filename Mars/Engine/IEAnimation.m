@@ -120,7 +120,7 @@
 
 - (float)getEasedDiff:(float)timeSinceLastUpdate
 {
-    float easedTime = [IEMath easeX:(_timeSinceStart + timeSinceLastUpdate) scale:_duration];
+    float easedTime = [IEMath easeOut:(_timeSinceStart + timeSinceLastUpdate) scale:_duration];
     float diff = _fromToDiff * (easedTime / _duration);
     diff = diff - _diffSoFar;
     return diff;

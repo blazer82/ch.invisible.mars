@@ -42,13 +42,16 @@
     _gameManager = [IEGameManager sharedManager];
     [_gameManager setupWithView:(GLKView *)view]; 
     
-    _inputManager = [[InputManager alloc] initWithView:(GLKView *)view];
-    _inputManager.cameraObject = _gameManager.cameraObject;
+    _inputManager = [[InputManager alloc] initWithView:(GLKView *)view andCameraObject:_gameManager.cameraObject];
     
     
     [_gameManager.cameraObject.transformationController rotateX:GLKMathDegreesToRadians(60)];
-    //[_gameManager.cameraObject.transformationController moveX:17.1f];
-    //[_gameManager.cameraObject.transformationController moveZ:-5.6f];
+    _gameManager.cameraObject.defaultAngle = 60.0f;
+    _gameManager.cameraObject.minAngle = 30.0f;
+    _gameManager.cameraObject.maxAngle = 80.0f;
+    _gameManager.cameraObject.minZoom = 0.5f;
+    _gameManager.cameraObject.maxZoom = 2.5f;
+    [_gameManager.cameraObject zoom:1.0f];
     [_gameManager.cameraObject.transformationController moveY:-20.0f];
     
     _shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"Shader" andTextureNamed:@"terrain"];

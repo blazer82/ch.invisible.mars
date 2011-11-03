@@ -14,9 +14,15 @@
 @interface IECameraObject : IEGameObject
 
 @property (nonatomic, strong) IECameraNode *cameraNode;
+@property (nonatomic) float minZoom;
+@property (nonatomic) float maxZoom;
+@property (nonatomic) float defaultAngle;
+@property (nonatomic) float minAngle;
+@property (nonatomic) float maxAngle;
 
 - (id)initPerspectiveWithView:(GLKView*)view;
 - (id)initOrthoWithView:(GLKView*)view;
 - (id)initFrustumWithView:(GLKView*)view;
+- (void)zoom:(float)factor;
 
 @end
