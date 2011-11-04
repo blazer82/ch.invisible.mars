@@ -85,17 +85,24 @@
     
     if (factor < 1.0)
     {
-        float angleRange = _maxAngle - _defaultAngle;
-        float zoomRange = 1.0 - _minZoom;
-        angle = _maxAngle - (angleRange * factor / zoomRange);
+        angle = _defaultAngle + ((_maxAngle - _defaultAngle) / (_minZoom - 1.0f)) * (factor - 1.0f);
     }
     else if (factor > 1.0)
     {
-        float angleRange = _minAngle - _defaultAngle;
-        angle = _defaultAngle + (angleRange * (factor - 1.0f));
+        angle = _defaultAngle + ((_minAngle - _defaultAngle) / (_maxZoom - 1.0f)) * (factor - 1.0f);
     }
     
-    NSLog([NSString stringWithFormat:@"angle: %f", angle]);
+    /*if (angle < _minAngle)
+    {
+        angle = _minAngle;
+    }
+    
+    if (angle > _maxAngle)
+    {
+        angle = _maxAngle;
+    }*/
+    
+    //NSLog([NSString stringWithFormat:@"angle: %f", angle]);
     
     float angleDiff = GLKMathDegreesToRadians(angle) - _cameraNode.transformation.rotation.x;
     

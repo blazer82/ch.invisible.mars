@@ -57,7 +57,7 @@
     _panBounce = 5.0f;
     
     _minZoomBounce = 0.1f;
-    _maxZoomBounce = 0.5f;
+    _maxZoomBounce = 0.2f;
     
     _autoZoom = _cameraObject.maxZoom;
     
@@ -203,12 +203,16 @@
             
             if (scaleAbs > _cameraObject.maxZoom)
             {
+                //scaleAbs = _cameraObject.maxZoom;
+                //_virtualZoom = scaleAbs;
                 float diff = scaleAbs - _cameraObject.maxZoom;
                 diff = [IEMath easeOut:diff scale:_maxZoomBounce];
                 scaleAbs = _cameraObject.maxZoom + diff;
             }
             else if (scaleAbs < _cameraObject.minZoom)
             {
+                //scaleAbs = _cameraObject.minZoom;
+                //virtualZoom = scaleAbs;
                 float diff = _cameraObject.minZoom - scaleAbs;
                 diff = [IEMath easeOut:diff scale:_minZoomBounce];
                 scaleAbs = _cameraObject.minZoom - diff;
@@ -232,12 +236,14 @@
             // bounce back animation
             if (_virtualZoom != _cameraObject.cameraNode.zoomFactor)
             {
-                IEAnimation *animation = [[IEAnimation alloc] initWithTarget:_cameraObject.cameraNode action:@selector(zoom:) methodSignature:[IECameraNode instanceMethodSignatureForSelector:@selector(zoom:)] fromValue:_cameraObject.cameraNode.zoomFactor toValue:_virtualZoom];
+                IEAnimation *animation = [[IEAnimation alloc] initWithTarget:_cameraObject action:@selector(zoom:) methodSignature:[IECameraObject instanceMethodSignatureForSelector:@selector(zoom:)] fromValue:_cameraObject.cameraNode.zoomFactor toValue:_virtualZoom];
                 animation.incremental = NO;
                 animation.duration = 0.2f;
                 [_gameManager registerAnimation:animation];
             }
         }
+        
+        NSLog([NSString stringWithFormat:@"zoom: %f", _cameraObject.cameraNode.zoomFactor]);
     }
 }
 
