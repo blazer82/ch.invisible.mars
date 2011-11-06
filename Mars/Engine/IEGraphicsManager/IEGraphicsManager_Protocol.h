@@ -14,6 +14,6 @@
 
 - (void)setupWithView:(UIView *)view;
 - (void)prepareToDraw;
-- (void)renderShapeNode:(IEShapeNode*)shapeNode forCameraNode:(IECameraNode*)cameraNode;
+- (void)renderShapeNode:(IEShapeNode*)shapeNode;
 
 @end

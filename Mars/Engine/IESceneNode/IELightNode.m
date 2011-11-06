@@ -17,7 +17,7 @@
 {
     self = [super init];
     
-    _position = GLKVector3Make(0.0f, 0.0f, 0.0f);
+    _position = GLKVector4Make(0.0f, 0.0f, 0.0f, 1.0f);
     _light = GLKVector4Make(0.0f, 0.0f, 0.0f, 0.0f);
     
     return self;

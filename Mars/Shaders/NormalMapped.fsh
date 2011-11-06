@@ -19,9 +19,9 @@ uniform lowp vec4 specularLight1;
 varying lowp vec2 textureVarying;
 //varying lowp vec3 tangentVarying;
 
-varying lowp vec3 lightVarying;
+varying highp vec3 lightVarying;
 //varying lowp vec3 eyeVarying;
-varying lowp vec3 halfVarying;
+varying highp vec3 halfVarying;
 
 void main()
 {
@@ -30,7 +30,7 @@ void main()
 	normal = normalize(normal);
     
     // compute diffuse lighting
-	lowp float lamberFactor = max(dot(lightVarying, normal), 0.0);
+	highp float lamberFactor = max(dot(lightVarying, normal), 0.0);
 	lowp vec4 diffuseMaterial = vec4(0.0, 0.0, 0.0, 1.0);
 	lowp vec4 diffuseLight  = vec4(0.0, 0.0, 0.0, 1.0);
     
@@ -42,22 +42,24 @@ void main()
     // compute ambient
 	//lowp vec4 ambientLight = vec4(0.2, 0.2, 0.2, 1.0);
     
-    //if (lamberFactor > 0.0)
-	//{
-		diffuseMaterial = texture2D(textureSampler, textureVarying.st);
-		diffuseLight  = vec4(1.0, 1.0, 1.0, 1.0);
-		
+    diffuseMaterial = texture2D(textureSampler, textureVarying.st);
+    diffuseLight  = vec4(1.0, 1.0, 1.0, 1.0);
+    
+    if (lamberFactor > 0.0)
+	{
 		specularMaterial = vec4(0.1, 0.1, 0.1, 1.0);
 		//specularLight = vec4(0.4, 0.4, 0.4, 1.0);
         specularLight = specularLight1;
 		shininess = pow(max(dot(halfVarying, normal), 0.0), 2.0);
         
-        //gl_FragColor =	diffuseMaterial * diffuseLight;
 		gl_FragColor =	diffuseMaterial * diffuseLight * lamberFactor;
-		gl_FragColor +=	specularMaterial * specularLight * shininess;				
-	//}
-    
-    gl_FragColor +=	ambientLight;
+		gl_FragColor +=	specularMaterial * specularLight * shininess;
+        gl_FragColor +=	ambientLight;
+	}
+    else
+    {
+        gl_FragColor = diffuseMaterial * diffuseLight * ambientLight;
+    }
     
     
     

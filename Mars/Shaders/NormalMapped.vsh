@@ -16,18 +16,18 @@ attribute vec3 tangent;
 varying lowp vec2 textureVarying;
 //varying lowp vec3 tangentVarying;
 
-varying lowp vec3 lightVarying;
+varying highp vec3 lightVarying;
 //varying lowp vec3 eyeVarying;
-varying lowp vec3 halfVarying;
+varying highp vec3 halfVarying;
 
 uniform lowp mat4 modelViewProjectionMatrix;
 uniform lowp mat3 normalMatrix;
-uniform lowp vec3 lightPosition1;
+uniform lowp vec4 lightPosition1;
 
 void main()
 {
     //vec3 lightPosition = vec3(0.0, 20.0, 50.0);
-    vec3 lightPosition = lightPosition1;
+    vec4 lightPosition = lightPosition1;
     
     // Building the matrix Eye Space -> Tangent Space
     vec3 n = normalize(normalMatrix * normal);
@@ -35,7 +35,7 @@ void main()
     vec3 b = cross(n, t);
     
     vec4 vertexPosition = modelViewProjectionMatrix * position;
-    vec3 lightDir = normalize(lightPosition - vertexPosition.xyz);
+    vec3 lightDir = normalize(lightPosition.xyz - vertexPosition.xyz);
     
     // transform light and half angle vectors by tangent basis
     vec3 v;

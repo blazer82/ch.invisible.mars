@@ -121,7 +121,7 @@
     [_graphicsManager prepareToDraw];
     for (IEShapeNode *shape in _graphicsManager.sceneGraph.rootNode.shapeChildren)
     {
-        [_graphicsManager renderShapeNode:shape forCameraNode:_graphicsManager.sceneGraph.rootNode.cameraChild];
+        [_graphicsManager renderShapeNode:shape];
     }
 }
 

@@ -52,7 +52,9 @@
     Sunlight *sunlight = [[Sunlight alloc] init];
     sunlight.lightNode.light = GLKVector4Make(0.5f, 0.4f, 0.4f, 1.0f);
     [sunlight setupWithAmbientLight:GLKVector4Make(0.2f, 0.1f, 0.1f, 1.0f)];
+    [sunlight.transformationController moveX:20.0f];
     [sunlight.transformationController moveY:100.0f];
+    [sunlight.transformationController moveZ:-10.0f];
     
     
     // camera
@@ -82,7 +84,7 @@
 
 - (void)update:(float)timeSinceLastUpdate
 {
-    [_shapeObject.transformationController rotateY:(timeSinceLastUpdate * 0.5f)];
+    [_shapeObject.transformationController rotateXYZ:(timeSinceLastUpdate * 0.5f)];
     
     [_gameManager update:timeSinceLastUpdate];
 }

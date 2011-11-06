@@ -10,7 +10,7 @@
 
 @interface IEGraphicsManager_OpenGLES2 ()
 {
-    
+    GLKVector4 _rootNodeLightPosition;
 }
 @property (strong, nonatomic) EAGLContext *context;
 
@@ -67,12 +67,18 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
 {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    // compute root node light position
+    GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(_currentRootNode.cameraChild.transformation.matrix, _currentRootNode.lightChild.transformation.matrix);
+    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(_currentRootNode.cameraChild.projectionMatrix, modelViewMatrix);
+    _rootNodeLightPosition = GLKMatrix4MultiplyVector4(modelViewProjectionMatrix, _currentRootNode.lightChild.position);
+    //NSLog([NSString stringWithFormat:@"%f %f %f %f", _rootNodeLightPosition.x, _rootNodeLightPosition.y, _rootNodeLightPosition.z, _rootNodeLightPosition.w]);
 }
 
-- (void)renderShapeNode:(IEShapeNode *)shapeNode forCameraNode:(IECameraNode *)cameraNode
+- (void)renderShapeNode:(IEShapeNode *)shapeNode
 {
-    GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(cameraNode.transformation.matrix, shapeNode.transformation.matrix);
-    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(cameraNode.projectionMatrix, modelViewMatrix);
+    GLKMatrix4 modelViewMatrix = GLKMatrix4Multiply(_currentRootNode.cameraChild.transformation.matrix, shapeNode.transformation.matrix);
+    GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Multiply(_currentRootNode.cameraChild.projectionMatrix, modelViewMatrix);
     GLKMatrix3 normalMatrix = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(shapeNode.transformation.matrix), NULL);
     
     glBindVertexArrayOES(shapeNode.geometry.vertexArray);
@@ -100,6 +106,8 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
     
     // light uniforms
     glUniform4fv(shapeNode.shader.uniformAmbientLight, 1, _currentRootNode.ambientLight.v);
+    glUniform4fv(shapeNode.shader.uniformLightPosition1, 1, _rootNodeLightPosition.v);
+    glUniform4fv(shapeNode.shader.uniformSpecularLight1, 1, _currentRootNode.lightChild.light.v);
     
     glDrawArrays(GL_TRIANGLES, 0, shapeNode.geometry.dataLength);
     

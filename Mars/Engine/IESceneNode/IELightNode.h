@@ -10,7 +10,7 @@
 
 @interface IELightNode : IESceneNode
 
-@property (nonatomic) GLKVector3 position;
+@property (nonatomic) GLKVector4 position;
 @property (nonatomic) GLKVector4 light;
 
 @end

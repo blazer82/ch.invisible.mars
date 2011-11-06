@@ -11,6 +11,7 @@
 #import "IEGraphicsManager_Protocol.h"
 #import "IEGroupNode.h"
 #import "IERootNode.h"
+#import "IECameraNode.h"
 
 @interface IEGraphicsManager_OpenGLES2 : NSObject <IEGraphicsManager_Protocol>
 
