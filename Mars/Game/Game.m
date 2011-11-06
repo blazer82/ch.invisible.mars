@@ -54,25 +54,26 @@
     [_gameManager.cameraObject zoom:1.0f];
     [_gameManager.cameraObject.transformationController moveY:-20.0f];
     
-    _shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"cube2" andShaderNamed:@"NormalMapped" andTextureNamed:@"cube2"];
+    // cube
+    /*_shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"cube2" andShaderNamed:@"NormalMapped" andTextureNamed:@"cube2"];
     [_shapeObject.textureController loadNormalMapNamed:@"cube2-normalmap"];
     [_shapeObject.shapeNode setupNormalMap];
-    [_gameManager registerShapeObject:_shapeObject];
+    [_gameManager registerShapeObject:_shapeObject];*/
     
     // terrain
-    /*_shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"NormalMapped" andTextureNamed:@"terrain"];
+    _shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"NormalMapped" andTextureNamed:@"terrain"];
     [_shapeObject.textureController loadNormalMapNamed:@"terrain-normalmap"];
     [_shapeObject.shapeNode setupNormalMap];
     [_gameManager registerShapeObject:_shapeObject];
     
     // basestation
-    _shapeObject2 = [[IEShapeObject alloc] initWithGeometryNamed:@"basestation" andShaderNamed:@"Shader" andTextureNamed:@"basestation"];
+    /*_shapeObject2 = [[IEShapeObject alloc] initWithGeometryNamed:@"basestation" andShaderNamed:@"Shader" andTextureNamed:@"basestation"];
     [_gameManager registerShapeObject:_shapeObject2];*/
 }
 
 - (void)update:(float)timeSinceLastUpdate
 {
-    [_shapeObject.transformationController rotateY:(timeSinceLastUpdate * 0.5f)];
+    //[_shapeObject.transformationController rotateY:(timeSinceLastUpdate * 0.5f)];
     
     [_gameManager update:timeSinceLastUpdate];
 }

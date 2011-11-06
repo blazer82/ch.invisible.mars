@@ -44,7 +44,7 @@ void main()
 		diffuseMaterial = texture2D(textureSampler, textureVarying.st);
 		diffuseLight  = vec4(1.0, 1.0, 1.0, 1.0);
 		
-		specularMaterial = vec4(0.1, 0.4, 0.1, 1.0);
+		specularMaterial = vec4(0.1, 0.1, 0.1, 1.0);
 		specularLight = vec4(0.4, 0.4, 0.4, 1.0);
 		shininess = pow(max(dot(halfVarying, normal), 0.0), 2.0);
         
