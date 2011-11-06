@@ -84,7 +84,7 @@
 
 - (void)update:(float)timeSinceLastUpdate
 {
-    [_shapeObject.transformationController rotateXYZ:(timeSinceLastUpdate * 0.5f)];
+    [_shapeObject.transformationController rotateY:(timeSinceLastUpdate * 0.5f)];
     
     [_gameManager update:timeSinceLastUpdate];
 }

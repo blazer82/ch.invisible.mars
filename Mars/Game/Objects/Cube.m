@@ -12,9 +12,9 @@
 
 - (id)init
 {
-    self = [super initWithGeometryNamed:@"cube2" andShaderNamed:@"NormalMapped" andTextureNamed:@"cube2"];
+    self = [super initWithGeometryNamed:@"cube2" andShaderNamed:@"NormalMapped" andTextureNamed:@"cube3"];
     
-    [self.textureController loadNormalMapNamed:@"cube2-normalmap"];
+    [self.textureController loadNormalMapNamed:@"cube3-normalmap"];
     [self.shapeNode setupNormalMap];
     
     return self;

@@ -339,8 +339,6 @@ typedef struct
     // compute vertex tangents
     for (int vIndex = 0; vIndex < self.vertexCount; vIndex++)
     {
-        GLKVector3 vertex = self.vertices[vIndex];
-        
         // average face tangets
         uint facesCount = 0;
         GLKVector3 vertexTangent = GLKVector3Make(0.0f, 0.0f, 0.0f);
