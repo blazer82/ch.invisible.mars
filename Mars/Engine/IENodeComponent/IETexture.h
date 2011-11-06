@@ -15,4 +15,6 @@
 @property (nonatomic) GLsizei width;
 @property (nonatomic) GLsizei height;
 
+- (void)freeSourceData;
+
 @end

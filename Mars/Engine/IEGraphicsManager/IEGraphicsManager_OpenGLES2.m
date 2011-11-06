@@ -57,6 +57,8 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
     
     // initialize opengl
     glEnable(GL_DEPTH_TEST);
+    
+    //NSLog([NSString stringWithFormat:@"GL_MAX_TEXTURE_SIZE: %i", GL_MAX_TEXTURE_SIZE]);
 }
 
 - (void)prepareToDraw
@@ -79,6 +81,13 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, shapeNode.texture.texture);
         glUniform1i(shapeNode.shader.uniformTextureSampler, 0);
+    }
+    
+    if (shapeNode.normalMap)
+    {
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, shapeNode.normalMap.texture);
+        glUniform1i(shapeNode.shader.uniformNormalMapSampler, 2);
     }
     
     glUniformMatrix4fv(shapeNode.shader.uniformModelViewProjectionMatrix, 1, 0, modelViewProjectionMatrix.m);

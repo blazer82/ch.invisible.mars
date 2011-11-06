@@ -16,11 +16,14 @@
 @property (nonatomic, strong) IEGeometry *geometry;
 @property (nonatomic, strong) IEShader *shader;
 @property (nonatomic, strong) IETexture *texture;
+@property (nonatomic, strong) IETexture *normalMap;
 @property (nonatomic) GLuint vertexAttribPosition;
 @property (nonatomic) GLuint vertexAttribNormal;
 @property (nonatomic) GLuint vertexAttribTexture;
+@property (nonatomic) GLuint vertexAttribTangent;
 
 - (void)setupVertexBuffer;
 - (void)setupTexture;
+- (void)setupNormalMap;
 
 @end

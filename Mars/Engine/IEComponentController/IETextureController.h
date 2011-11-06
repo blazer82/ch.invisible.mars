@@ -13,8 +13,9 @@
 
 @interface IETextureController : IEComponentController
 
-@property (nonatomic, strong) IETexture *texture;
+@property (nonatomic, strong) IEShapeNode *shapeNode;
 
 - (id)initTextureNamed:(NSString*)name forShapeNode:(IEShapeNode*)shapeNode;
+- (void)loadNormalMapNamed:(NSString*)name;
 
 @end

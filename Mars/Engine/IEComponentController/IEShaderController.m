@@ -67,6 +67,7 @@
     glBindAttribLocation(program, node.vertexAttribPosition, "position");
     glBindAttribLocation(program, node.vertexAttribNormal, "normal");
     glBindAttribLocation(program, node.vertexAttribTexture, "texture");
+    glBindAttribLocation(program, node.vertexAttribTangent, "tangent");
     
     // Link program.
     if (![self linkProgram:program]) {
@@ -94,6 +95,7 @@
     node.shader.uniformModelViewProjectionMatrix = glGetUniformLocation(program, "modelViewProjectionMatrix");
     node.shader.uniformNormalMatrix = glGetUniformLocation(program, "normalMatrix");
     node.shader.uniformTextureSampler = glGetUniformLocation(program, "textureSampler");
+    node.shader.uniformNormalMapSampler = glGetUniformLocation(program, "normalMapSampler");
     
     // Release vertex and fragment shaders.
     if (vertShader) {

@@ -17,6 +17,11 @@
 
 - (void)dealloc
 {
+    [self freeSourceData];
+}
+
+- (void)freeSourceData
+{
     free(_imageData);
 }
 

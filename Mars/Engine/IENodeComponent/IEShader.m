@@ -21,6 +21,7 @@
 @synthesize uniformModelViewProjectionMatrix = _uniformModelViewProjectionMatrix;
 @synthesize uniformNormalMatrix = _uniformNormalMatrix;
 @synthesize uniformTextureSampler = _uniformTextureSampler;
+@synthesize uniformNormalMapSampler = _uniformNormalMapSampler;
 
 - (id)initWithProgram:(GLuint)program
 {

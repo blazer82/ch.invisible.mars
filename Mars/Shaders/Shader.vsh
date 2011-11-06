@@ -9,6 +9,7 @@
 attribute vec4 position;
 attribute vec3 normal;
 attribute vec2 texture;
+attribute vec3 tangent;
 
 varying lowp vec4 colorVarying;
 varying lowp vec2 textureVarying;

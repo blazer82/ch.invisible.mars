@@ -65,6 +65,12 @@
 		2EC1BED41459F4EB0044C8CF /* IECameraNode_Ortho.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */; };
 		2EC1BED91459F6900044C8CF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED81459F6900044C8CF /* Game.m */; };
 		2EC1BEDC1459FA470044C8CF /* InputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BEDB1459FA470044C8CF /* InputManager.m */; };
+		2EDA701C14657E0E00CF23C1 /* NormalMapped.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA701B14657E0E00CF23C1 /* NormalMapped.vsh */; };
+		2EDA701F14657E2300CF23C1 /* NormalMapped.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA701E14657E2300CF23C1 /* NormalMapped.fsh */; };
+		2EDA702114657EC100CF23C1 /* terrain-normalmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA702014657EC100CF23C1 /* terrain-normalmap.png */; };
+		2EDA702214657F8800CF23C1 /* NormalMapped.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA701E14657E2300CF23C1 /* NormalMapped.fsh */; };
+		2EDA702314657F8800CF23C1 /* NormalMapped.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA701B14657E0E00CF23C1 /* NormalMapped.vsh */; };
+		2EDA70251465B4E800CF23C1 /* cube2-normalmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA70241465B4E800CF23C1 /* cube2-normalmap.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +170,10 @@
 		2EC1BED81459F6900044C8CF /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Game/Game.m; sourceTree = "<group>"; };
 		2EC1BEDA1459FA470044C8CF /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputManager.h; path = Game/InputManager.h; sourceTree = "<group>"; };
 		2EC1BEDB1459FA470044C8CF /* InputManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputManager.m; path = Game/InputManager.m; sourceTree = "<group>"; };
+		2EDA701B14657E0E00CF23C1 /* NormalMapped.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = NormalMapped.vsh; sourceTree = "<group>"; };
+		2EDA701E14657E2300CF23C1 /* NormalMapped.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = NormalMapped.fsh; sourceTree = "<group>"; };
+		2EDA702014657EC100CF23C1 /* terrain-normalmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terrain-normalmap.png"; sourceTree = "<group>"; };
+		2EDA70241465B4E800CF23C1 /* cube2-normalmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cube2-normalmap.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +390,8 @@
 		2E03450D1455F4440034B397 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				2EDA701E14657E2300CF23C1 /* NormalMapped.fsh */,
+				2EDA701B14657E0E00CF23C1 /* NormalMapped.vsh */,
 				2E03450E1455F4440034B397 /* Shader.fsh */,
 				2E03450F1455F4440034B397 /* Shader.vsh */,
 			);
@@ -389,6 +401,8 @@
 		2E0345101455F4440034B397 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				2EDA70241465B4E800CF23C1 /* cube2-normalmap.png */,
+				2EDA702014657EC100CF23C1 /* terrain-normalmap.png */,
 				2E0345391455FB8C0034B397 /* terrain.png */,
 				2E0345351455F8E30034B397 /* cube2.png */,
 				2E03452F1455F7240034B397 /* basestation.png */,
@@ -471,6 +485,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDA702214657F8800CF23C1 /* NormalMapped.fsh in Resources */,
+				2EDA702314657F8800CF23C1 /* NormalMapped.vsh in Resources */,
 				2E0345371455F96F0034B397 /* Shader.fsh in Resources */,
 				2E0345381455F96F0034B397 /* Shader.vsh in Resources */,
 				2E0344B91455F36D0034B397 /* InfoPlist.strings in Resources */,
@@ -485,6 +501,8 @@
 				2E07BDAB145E24E80026F385 /* app-icon-retina.png in Resources */,
 				2E07BDAD145E24EE0026F385 /* Default.png in Resources */,
 				2E07BDAF145E24F20026F385 /* Default@2x.png in Resources */,
+				2EDA702114657EC100CF23C1 /* terrain-normalmap.png in Resources */,
+				2EDA70251465B4E800CF23C1 /* cube2-normalmap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +551,8 @@
 				2E07BD99145CD6680026F385 /* IEAnimation.m in Sources */,
 				2E07BD9D145DEB2C0026F385 /* IEMath.m in Sources */,
 				2E07BDB21461C4F00026F385 /* IECameraNode_Frustum.m in Sources */,
+				2EDA701C14657E0E00CF23C1 /* NormalMapped.vsh in Sources */,
+				2EDA701F14657E2300CF23C1 /* NormalMapped.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

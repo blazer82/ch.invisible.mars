@@ -14,6 +14,7 @@
 @property (nonatomic) GLuint uniformModelViewProjectionMatrix;
 @property (nonatomic) GLuint uniformNormalMatrix;
 @property (nonatomic) GLuint uniformTextureSampler;
+@property (nonatomic) GLuint uniformNormalMapSampler;
 
 - (id)initWithProgram:(GLuint)program;
 

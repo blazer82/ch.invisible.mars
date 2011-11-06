@@ -59,9 +59,10 @@
     _shaderController = object.shaderController;
     _textureController = object.textureController;
     
-    _shapeNode.geometry = _geometryController.geometry;
-    _shapeNode.shader = _shaderController.shader;
-    _shapeNode.texture = _textureController.texture;
+    _shapeNode.geometry = object.shapeNode.geometry;
+    _shapeNode.shader = object.shapeNode.shader;
+    _shapeNode.texture = object.shapeNode.texture;
+    _shapeNode.normalMap = object.shapeNode.normalMap;
     
     return self;
 }

@@ -10,19 +10,6 @@
 
 typedef struct
 {
-    GLfloat x;
-    GLfloat y;
-    GLfloat z;
-} Vertex3D, Normal3D;
-
-typedef struct
-{
-    GLfloat s;
-    GLfloat t;
-} Texture3D;
-
-typedef struct
-{
     ushort v1;
     ushort v2;
     ushort v3;
@@ -32,15 +19,20 @@ typedef struct
     ushort n1;
     ushort n2;
     ushort n3;
+    GLKVector3 tangent;
+    ushort tangent1;
+    ushort tangent2;
+    ushort tangent3;
 } Face3D;
 
 @interface IEGeometryController ()
 {
     
 }
-@property (nonatomic) Vertex3D *vertices;
-@property (nonatomic) Texture3D *textures;
-@property (nonatomic) Normal3D *normals;
+@property (nonatomic) GLKVector3 *vertices;
+@property (nonatomic) GLKVector2 *textures;
+@property (nonatomic) GLKVector3 *normals;
+@property (nonatomic) GLKVector3 *tangents;
 @property (nonatomic) Face3D *faces;
 @property (nonatomic) ushort vertexCount;
 @property (nonatomic) ushort normalCount;
@@ -49,6 +41,7 @@ typedef struct
 
 - (void)parseObjFileWithName:(NSString *)name;
 - (void)createVertexDataforShapeNode:(IEShapeNode*)node;
+- (void)computeTangents;
 - (void)freeSourceData;
 
 @end
@@ -59,6 +52,7 @@ typedef struct
 @synthesize vertices = _vertices;
 @synthesize textures = _textures;
 @synthesize normals = _normals;
+@synthesize tangents = _tangents;
 @synthesize faces = _faces;
 @synthesize vertexCount = _vertexCount;
 @synthesize normalCount = _normalCount;
@@ -138,9 +132,9 @@ typedef struct
     }
     
     // init arrays
-    self.vertices = malloc(sizeof(Vertex3D) * self.vertexCount);
-    self.textures = malloc(sizeof(Texture3D) * self.textureCount);
-    self.normals  = malloc(sizeof(Normal3D) * self.normalCount);
+    self.vertices = malloc(sizeof(GLKVector3) * self.vertexCount);
+    self.textures = malloc(sizeof(GLKVector2) * self.textureCount);
+    self.normals  = malloc(sizeof(GLKVector3) * self.normalCount);
     self.faces    = malloc(sizeof(Face3D) * self.faceCount);
     
     uint vIndex = 0;
@@ -212,7 +206,7 @@ typedef struct
 - (void)createVertexDataforShapeNode:(IEShapeNode*)node
 {
     _geometry.dataLength = self.faceCount * 3; // 3 vertices per face
-    _geometry.dataSize   = sizeof(GLfloat) * self.faceCount * 24; // 24 floats per face
+    _geometry.dataSize   = sizeof(GLfloat) * self.faceCount * 33; // 33 floats per face
     _geometry.vertexData = malloc(_geometry.dataSize);
     
     // prepare bounding box
@@ -224,34 +218,46 @@ typedef struct
     boundingBox.max.y = 0.0f;
     boundingBox.max.z = 0.0f;
     
+    // compute tangents
+    [self computeTangents];
+    
     for (ushort faceIndex = 0; faceIndex < self.faceCount; faceIndex++)
     {
-        _geometry.vertexData[(faceIndex * 24) + 0] = self.vertices[self.faces[faceIndex].v1].x;
-        _geometry.vertexData[(faceIndex * 24) + 1] = self.vertices[self.faces[faceIndex].v1].y;
-        _geometry.vertexData[(faceIndex * 24) + 2] = self.vertices[self.faces[faceIndex].v1].z;
-        _geometry.vertexData[(faceIndex * 24) + 3] = self.textures[self.faces[faceIndex].t1].s;
-        _geometry.vertexData[(faceIndex * 24) + 4] = self.textures[self.faces[faceIndex].t1].t;
-        _geometry.vertexData[(faceIndex * 24) + 5] = self.normals[self.faces[faceIndex].n1].x;
-        _geometry.vertexData[(faceIndex * 24) + 6] = self.normals[self.faces[faceIndex].n1].y;
-        _geometry.vertexData[(faceIndex * 24) + 7] = self.normals[self.faces[faceIndex].n1].z;
+        _geometry.vertexData[(faceIndex * 33) + 0]  = self.vertices[self.faces[faceIndex].v1].x;
+        _geometry.vertexData[(faceIndex * 33) + 1]  = self.vertices[self.faces[faceIndex].v1].y;
+        _geometry.vertexData[(faceIndex * 33) + 2]  = self.vertices[self.faces[faceIndex].v1].z;
+        _geometry.vertexData[(faceIndex * 33) + 3]  = self.textures[self.faces[faceIndex].t1].s;
+        _geometry.vertexData[(faceIndex * 33) + 4]  = self.textures[self.faces[faceIndex].t1].t;
+        _geometry.vertexData[(faceIndex * 33) + 5]  = self.normals[self.faces[faceIndex].n1].x;
+        _geometry.vertexData[(faceIndex * 33) + 6]  = self.normals[self.faces[faceIndex].n1].y;
+        _geometry.vertexData[(faceIndex * 33) + 7]  = self.normals[self.faces[faceIndex].n1].z;
+        _geometry.vertexData[(faceIndex * 33) + 8]  = self.tangents[self.faces[faceIndex].tangent1].x;
+        _geometry.vertexData[(faceIndex * 33) + 9]  = self.tangents[self.faces[faceIndex].tangent1].y;
+        _geometry.vertexData[(faceIndex * 33) + 10] = self.tangents[self.faces[faceIndex].tangent1].z;
         
-        _geometry.vertexData[(faceIndex * 24) + 8] = self.vertices[self.faces[faceIndex].v2].x;
-        _geometry.vertexData[(faceIndex * 24) + 9] = self.vertices[self.faces[faceIndex].v2].y;
-        _geometry.vertexData[(faceIndex * 24) + 10] = self.vertices[self.faces[faceIndex].v2].z;
-        _geometry.vertexData[(faceIndex * 24) + 11] = self.textures[self.faces[faceIndex].t2].s;
-        _geometry.vertexData[(faceIndex * 24) + 12] = self.textures[self.faces[faceIndex].t2].t;
-        _geometry.vertexData[(faceIndex * 24) + 13] = self.normals[self.faces[faceIndex].n2].x;
-        _geometry.vertexData[(faceIndex * 24) + 14] = self.normals[self.faces[faceIndex].n2].y;
-        _geometry.vertexData[(faceIndex * 24) + 15] = self.normals[self.faces[faceIndex].n2].z;
+        _geometry.vertexData[(faceIndex * 33) + 11] = self.vertices[self.faces[faceIndex].v2].x;
+        _geometry.vertexData[(faceIndex * 33) + 12] = self.vertices[self.faces[faceIndex].v2].y;
+        _geometry.vertexData[(faceIndex * 33) + 13] = self.vertices[self.faces[faceIndex].v2].z;
+        _geometry.vertexData[(faceIndex * 33) + 14] = self.textures[self.faces[faceIndex].t2].s;
+        _geometry.vertexData[(faceIndex * 33) + 15] = self.textures[self.faces[faceIndex].t2].t;
+        _geometry.vertexData[(faceIndex * 33) + 16] = self.normals[self.faces[faceIndex].n2].x;
+        _geometry.vertexData[(faceIndex * 33) + 17] = self.normals[self.faces[faceIndex].n2].y;
+        _geometry.vertexData[(faceIndex * 33) + 18] = self.normals[self.faces[faceIndex].n2].z;
+        _geometry.vertexData[(faceIndex * 33) + 19] = self.tangents[self.faces[faceIndex].tangent2].x;
+        _geometry.vertexData[(faceIndex * 33) + 20] = self.tangents[self.faces[faceIndex].tangent2].y;
+        _geometry.vertexData[(faceIndex * 33) + 21] = self.tangents[self.faces[faceIndex].tangent2].z;
         
-        _geometry.vertexData[(faceIndex * 24) + 16] = self.vertices[self.faces[faceIndex].v3].x;
-        _geometry.vertexData[(faceIndex * 24) + 17] = self.vertices[self.faces[faceIndex].v3].y;
-        _geometry.vertexData[(faceIndex * 24) + 18] = self.vertices[self.faces[faceIndex].v3].z;
-        _geometry.vertexData[(faceIndex * 24) + 19] = self.textures[self.faces[faceIndex].t3].s;
-        _geometry.vertexData[(faceIndex * 24) + 20] = self.textures[self.faces[faceIndex].t3].t;
-        _geometry.vertexData[(faceIndex * 24) + 21] = self.normals[self.faces[faceIndex].n3].x;
-        _geometry.vertexData[(faceIndex * 24) + 22] = self.normals[self.faces[faceIndex].n3].y;
-        _geometry.vertexData[(faceIndex * 24) + 23] = self.normals[self.faces[faceIndex].n3].z;
+        _geometry.vertexData[(faceIndex * 33) + 22] = self.vertices[self.faces[faceIndex].v3].x;
+        _geometry.vertexData[(faceIndex * 33) + 23] = self.vertices[self.faces[faceIndex].v3].y;
+        _geometry.vertexData[(faceIndex * 33) + 24] = self.vertices[self.faces[faceIndex].v3].z;
+        _geometry.vertexData[(faceIndex * 33) + 25] = self.textures[self.faces[faceIndex].t3].s;
+        _geometry.vertexData[(faceIndex * 33) + 26] = self.textures[self.faces[faceIndex].t3].t;
+        _geometry.vertexData[(faceIndex * 33) + 27] = self.normals[self.faces[faceIndex].n3].x;
+        _geometry.vertexData[(faceIndex * 33) + 28] = self.normals[self.faces[faceIndex].n3].y;
+        _geometry.vertexData[(faceIndex * 33) + 29] = self.normals[self.faces[faceIndex].n3].z;
+        _geometry.vertexData[(faceIndex * 33) + 30] = self.tangents[self.faces[faceIndex].tangent3].x;
+        _geometry.vertexData[(faceIndex * 33) + 31] = self.tangents[self.faces[faceIndex].tangent3].y;
+        _geometry.vertexData[(faceIndex * 33) + 32] = self.tangents[self.faces[faceIndex].tangent3].z;
     }
     
     // compute the bounding box
@@ -296,11 +302,71 @@ typedef struct
      }*/
 }
 
+/*
+ see http://www.terathon.com/code/tangent.html
+*/
+- (void)computeTangents
+{
+    // compute face tangents
+    for (ushort faceIndex = 0; faceIndex < self.faceCount; faceIndex++)
+    {
+        Face3D face = self.faces[faceIndex];
+        
+        GLKVector3 q1 = GLKVector3Subtract(self.vertices[face.v2], self.vertices[face.v1]);
+        GLKVector3 q2 = GLKVector3Subtract(self.vertices[face.v3], self.vertices[face.v1]);
+    
+        GLKVector2 st1 = GLKVector2Subtract(self.textures[face.t2], self.textures[face.t1]);
+        GLKVector2 st2 = GLKVector2Subtract(self.textures[face.t3], self.textures[face.t1]);
+    
+        GLKMatrix3 qMatrix = GLKMatrix3Make(q1.x, q1.y, q1.z, q2.x, q2.y, q2.z, 0.0f, 0.0f, 0.0f);
+        GLKMatrix3 stMatrix = GLKMatrix3Make(st1.s, st1.t, 0.0f, st2.s, st2.t, 0.0f, 0.0f, 0.0f, 0.0f);
+    
+        BOOL* isInvertible = malloc(sizeof(BOOL));
+        GLKMatrix3 stMatrixInverted = GLKMatrix3Invert(stMatrix, isInvertible);
+    
+        if (!isInvertible)
+        {
+            NSLog(@"Error: stMatrix was NOT invertible");
+        }
+    
+        GLKMatrix3 tangentMatrix = GLKMatrix3Multiply(stMatrixInverted, GLKMatrix3Multiply(stMatrix, qMatrix));
+    
+        self.faces[faceIndex].tangent = GLKVector3Make(tangentMatrix.m00, tangentMatrix.m01, tangentMatrix.m02);
+    }
+    
+    self.tangents = malloc(sizeof(GLKVector3) * self.vertexCount);
+    
+    // compute vertex tangents
+    for (int vIndex = 0; vIndex < self.vertexCount; vIndex++)
+    {
+        GLKVector3 vertex = self.vertices[vIndex];
+        
+        // average face tangets
+        uint facesCount = 0;
+        GLKVector3 vertexTangent = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        for (ushort faceIndex = 0; faceIndex < self.faceCount; faceIndex++)
+        {
+            Face3D face = self.faces[faceIndex];
+            
+            if (face.v1 == faceIndex || face.v2 == faceIndex || face.v3 == faceIndex)
+            {
+                vertexTangent = GLKVector3Add(vertexTangent, face.tangent);
+                facesCount++;
+            }
+        }
+        
+        vertexTangent = GLKVector3Normalize(GLKVector3DivideScalar(vertexTangent, facesCount));
+        
+        self.tangents[vIndex] = vertexTangent;
+    }
+}
+
 - (void)freeSourceData
 {
     free(_vertices);
     free(_textures);
     free(_normals);
+    free(_tangents);
     free(_faces);
 }
 

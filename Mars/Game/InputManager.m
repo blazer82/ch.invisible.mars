@@ -243,7 +243,7 @@
             }
         }
         
-        NSLog([NSString stringWithFormat:@"zoom: %f", _cameraObject.cameraNode.zoomFactor]);
+        //NSLog([NSString stringWithFormat:@"zoom: %f", _cameraObject.cameraNode.zoomFactor]);
     }
 }
 
