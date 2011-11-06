@@ -23,13 +23,13 @@ varying lowp vec3 halfVarying;
 void main()
 {
     // lookup normal from normal map, move from [0,1] to  [-1, 1] range, normalize
-	lowp vec3 normal = 2.0 * texture2D(normalMapSampler, tangentVarying.st).rgb - 1.0;
+	lowp vec3 normal = 2.0 * texture2D(normalMapSampler, textureVarying.st).rgb - 1.0;
 	normal = normalize(normal);
     
     // compute diffuse lighting
 	lowp float lamberFactor = max(dot(lightVarying, normal), 0.0);
-	lowp vec4 diffuseMaterial = vec4(0.0, 0.0, 0.0, 0.0);
-	lowp vec4 diffuseLight  = vec4(0.0, 0.0, 0.0, 0.0);
+	lowp vec4 diffuseMaterial = vec4(0.0, 0.0, 0.0, 1.0);
+	lowp vec4 diffuseLight  = vec4(0.0, 0.0, 0.0, 1.0);
     
     // compute specular lighting
 	lowp vec4 specularMaterial;
@@ -37,20 +37,21 @@ void main()
 	lowp float shininess;
     
     // compute ambient
-	lowp vec4 ambientLight = vec4(0.1, 0.1, 0.1, 0.0);
+	lowp vec4 ambientLight = vec4(0.2, 0.2, 0.2, 1.0);
     
-    if (lamberFactor > 0.0)
-	{
+    //if (lamberFactor > 0.0)
+	//{
 		diffuseMaterial = texture2D(textureSampler, textureVarying.st);
-		diffuseLight  = vec4(0.5, 0.5, 0.5, 0.0);
+		diffuseLight  = vec4(1.0, 1.0, 1.0, 1.0);
 		
-		specularMaterial = vec4(0.5, 0.5, 0.5, 0.0);
-		specularLight = vec4(1.0, 1.0, 1.0, 0.0);
+		specularMaterial = vec4(0.1, 0.4, 0.1, 1.0);
+		specularLight = vec4(0.4, 0.4, 0.4, 1.0);
 		shininess = pow(max(dot(halfVarying, normal), 0.0), 2.0);
         
+        //gl_FragColor =	diffuseMaterial * diffuseLight;
 		gl_FragColor =	diffuseMaterial * diffuseLight * lamberFactor;
 		gl_FragColor +=	specularMaterial * specularLight * shininess;				
-	}
+	//}
     
     gl_FragColor +=	ambientLight;
     

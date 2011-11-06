@@ -359,6 +359,11 @@ typedef struct
         
         self.tangents[vIndex] = vertexTangent;
     }
+    
+    /*for (int vIndex = 0; vIndex < self.vertexCount; vIndex++)
+    {
+        NSLog([NSString stringWithFormat:@"vertex tangent x:%f y:%f z:%f", self.tangents[vIndex].x, self.tangents[vIndex].y, self.tangents[vIndex].z]);
+    }*/
 }
 
 - (void)freeSourceData

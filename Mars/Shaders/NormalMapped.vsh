@@ -25,7 +25,7 @@ uniform lowp mat3 normalMatrix;
 
 void main()
 {
-    vec3 lightPosition = vec3(0.0, 2.0, 0.0);
+    vec3 lightPosition = vec3(10.0, 5.0, 100.0);
     
     // Building the matrix Eye Space -> Tangent Space
     vec3 n = normalize(normalMatrix * normal);
