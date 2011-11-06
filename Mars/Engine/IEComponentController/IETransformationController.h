@@ -8,15 +8,13 @@
 
 #import "IEComponentController.h"
 #import "IETransformation.h"
-#import "IEShapeNode.h"
-#import "IECameraNode.h"
+#import "IESceneNode.h"
 
 @interface IETransformationController : IEComponentController
 
 @property (nonatomic, strong) IETransformation *transformation;
 
-- (id)initForShapeNode:(IEShapeNode*)node;
-- (id)initForCameraNode:(IECameraNode*)node;
+- (id)initForNode:(IESceneNode*)node;
 - (void)rotateXYZ:(GLfloat)radians;
 - (void)rotateX:(GLfloat)radians;
 - (void)rotateY:(GLfloat)radians;

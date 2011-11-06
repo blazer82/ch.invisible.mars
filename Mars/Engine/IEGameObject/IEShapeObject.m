@@ -21,7 +21,7 @@
     
     _shapeNode = [[IEShapeNode alloc] init];
     
-    self.transformationController = [[IETransformationController alloc] initForShapeNode:_shapeNode];
+    self.transformationController = [[IETransformationController alloc] initForNode:_shapeNode];
     _geometryController = [[IEGeometryController alloc] initGeometryNamed:geometryName forShapeNode:_shapeNode];
     _shaderController = [[IEShaderController alloc] initShaderNamed:shaderName forShapeNode:_shapeNode];
     
@@ -36,7 +36,7 @@
     
     _shapeNode = [[IEShapeNode alloc] init];
     
-    self.transformationController = [[IETransformationController alloc] initForShapeNode:_shapeNode];
+    self.transformationController = [[IETransformationController alloc] initForNode:_shapeNode];
     _geometryController = [[IEGeometryController alloc] initGeometryNamed:geometryName forShapeNode:_shapeNode];
     _shaderController = [[IEShaderController alloc] initShaderNamed:shaderName forShapeNode:_shapeNode];
     _textureController = [[IETextureController alloc] initTextureNamed:textureName forShapeNode:_shapeNode];
@@ -53,7 +53,7 @@
     
     _shapeNode = [[IEShapeNode alloc] init];
     
-    self.transformationController = [[IETransformationController alloc] initForShapeNode:_shapeNode];
+    self.transformationController = [[IETransformationController alloc] initForNode:_shapeNode];
     
     _geometryController = object.geometryController;
     _shaderController = object.shaderController;

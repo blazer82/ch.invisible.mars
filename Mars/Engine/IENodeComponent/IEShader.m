@@ -22,6 +22,9 @@
 @synthesize uniformNormalMatrix = _uniformNormalMatrix;
 @synthesize uniformTextureSampler = _uniformTextureSampler;
 @synthesize uniformNormalMapSampler = _uniformNormalMapSampler;
+@synthesize uniformAmbientLight = _uniformAmbientLight;
+@synthesize uniformLightPosition1 = _uniformLightPosition1;
+@synthesize uniformSpecularLight1 = _uniformSpecularLight1;
 
 - (id)initWithProgram:(GLuint)program
 {

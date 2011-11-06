@@ -12,17 +12,7 @@
 
 @synthesize transformation = _transformation;
 
-- (id)initForShapeNode:(IEShapeNode *)node
-{
-    self = [super init];
-    
-    node.transformation = [[IETransformation alloc] init];
-    _transformation = node.transformation;
-    
-    return self;
-}
-
-- (id)initForCameraNode:(IECameraNode *)node
+- (id)initForNode:(IESceneNode *)node
 {
     self = [super init];
     

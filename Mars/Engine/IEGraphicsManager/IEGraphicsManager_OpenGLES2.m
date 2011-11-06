@@ -19,6 +19,8 @@
 
 @implementation IEGraphicsManager_OpenGLES2
 
+@synthesize currentRootNode = _currentRootNode;
+@synthesize currentGroupNode = _currentGroupNode;
 @synthesize context = _context;
 
 static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
@@ -76,6 +78,7 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
     glBindVertexArrayOES(shapeNode.geometry.vertexArray);
     glUseProgram(shapeNode.shader.program);
     
+    // texture uniform
     if (shapeNode.texture)
     {
         glActiveTexture(GL_TEXTURE0);
@@ -83,6 +86,7 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
         glUniform1i(shapeNode.shader.uniformTextureSampler, 0);
     }
     
+    // normalMap uniform
     if (shapeNode.normalMap)
     {
         glActiveTexture(GL_TEXTURE2);
@@ -90,8 +94,12 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
         glUniform1i(shapeNode.shader.uniformNormalMapSampler, 2);
     }
     
+    // matrix uniforms
     glUniformMatrix4fv(shapeNode.shader.uniformModelViewProjectionMatrix, 1, 0, modelViewProjectionMatrix.m);
     glUniformMatrix3fv(shapeNode.shader.uniformNormalMatrix, 1, 0, normalMatrix.m);
+    
+    // light uniforms
+    glUniform4fv(shapeNode.shader.uniformAmbientLight, 1, _currentRootNode.ambientLight.v);
     
     glDrawArrays(GL_TRIANGLES, 0, shapeNode.geometry.dataLength);
     
@@ -103,6 +111,8 @@ static IEGraphicsManager_OpenGLES2 *_sharedManager = nil;
 - (void)dealloc
 {
     self.context = nil;
+    self.currentRootNode = nil;
+    self.currentGroupNode = nil;
 }
 
 @end

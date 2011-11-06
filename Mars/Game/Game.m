@@ -7,6 +7,8 @@
 //
 
 #import "Game.h"
+#import "Cube.h"
+#import "Sunlight.h"
 
 @interface Game ()
 {
@@ -39,10 +41,19 @@
         NSLog(@"Failed to create ES context");
     }
     
+    // game manager
     _gameManager = [IEGameManager sharedManager];
     [_gameManager setupWithView:(GLKView *)view]; 
     
+    // input manager
     _inputManager = [[InputManager alloc] initWithView:(GLKView *)view andCameraObject:_gameManager.cameraObject];
+    
+    // light (sun & ambient)
+    Sunlight *sunlight = [[Sunlight alloc] init];
+    sunlight.lightNode.light = GLKVector4Make(0.5f, 0.4f, 0.4f, 1.0f);
+    [sunlight setupWithAmbientLight:GLKVector4Make(0.2f, 0.1f, 0.1f, 1.0f)];
+    [sunlight.transformationController moveY:100.0f];
+    
     
     // camera
     [_gameManager.cameraObject.transformationController rotateX:GLKMathDegreesToRadians(60)];
@@ -55,16 +66,14 @@
     [_gameManager.cameraObject.transformationController moveY:-20.0f];
     
     // cube
-    /*_shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"cube2" andShaderNamed:@"NormalMapped" andTextureNamed:@"cube2"];
-    [_shapeObject.textureController loadNormalMapNamed:@"cube2-normalmap"];
-    [_shapeObject.shapeNode setupNormalMap];
-    [_gameManager registerShapeObject:_shapeObject];*/
+    _shapeObject = [[Cube alloc] init];
+    [_gameManager registerShapeObject:_shapeObject];
     
     // terrain
-    _shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"NormalMapped" andTextureNamed:@"terrain"];
+    /*_shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"NormalMapped" andTextureNamed:@"terrain"];
     [_shapeObject.textureController loadNormalMapNamed:@"terrain-normalmap"];
     [_shapeObject.shapeNode setupNormalMap];
-    [_gameManager registerShapeObject:_shapeObject];
+    [_gameManager registerShapeObject:_shapeObject];*/
     
     // basestation
     /*_shapeObject2 = [[IEShapeObject alloc] initWithGeometryNamed:@"basestation" andShaderNamed:@"Shader" andTextureNamed:@"basestation"];
@@ -73,7 +82,7 @@
 
 - (void)update:(float)timeSinceLastUpdate
 {
-    //[_shapeObject.transformationController rotateY:(timeSinceLastUpdate * 0.5f)];
+    [_shapeObject.transformationController rotateY:(timeSinceLastUpdate * 0.5f)];
     
     [_gameManager update:timeSinceLastUpdate];
 }

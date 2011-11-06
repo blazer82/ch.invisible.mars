@@ -96,6 +96,9 @@
     node.shader.uniformNormalMatrix = glGetUniformLocation(program, "normalMatrix");
     node.shader.uniformTextureSampler = glGetUniformLocation(program, "textureSampler");
     node.shader.uniformNormalMapSampler = glGetUniformLocation(program, "normalMapSampler");
+    node.shader.uniformAmbientLight = glGetUniformLocation(program, "ambientLight");
+    node.shader.uniformLightPosition1 = glGetUniformLocation(program, "lightPosition1");
+    node.shader.uniformSpecularLight1 = glGetUniformLocation(program, "specularLight1");
     
     // Release vertex and fragment shaders.
     if (vertShader) {

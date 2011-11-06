@@ -12,20 +12,22 @@ attribute vec2 texture;
 attribute vec3 tangent;
 
 //varying lowp vec4 colorVarying;
-varying lowp vec3 normalVarying;
+//varying lowp vec3 normalVarying;
 varying lowp vec2 textureVarying;
-varying lowp vec3 tangentVarying;
+//varying lowp vec3 tangentVarying;
 
 varying lowp vec3 lightVarying;
-varying lowp vec3 eyeVarying;
+//varying lowp vec3 eyeVarying;
 varying lowp vec3 halfVarying;
 
 uniform lowp mat4 modelViewProjectionMatrix;
 uniform lowp mat3 normalMatrix;
+uniform lowp vec3 lightPosition1;
 
 void main()
 {
-    vec3 lightPosition = vec3(0.0, 20.0, 50.0);
+    //vec3 lightPosition = vec3(0.0, 20.0, 50.0);
+    vec3 lightPosition = lightPosition1;
     
     // Building the matrix Eye Space -> Tangent Space
     vec3 n = normalize(normalMatrix * normal);
@@ -45,7 +47,7 @@ void main()
     v.x = dot(vertexPosition.xyz, t);
     v.y = dot(vertexPosition.xyz, b);
     v.z = dot(vertexPosition.xyz, n);
-    eyeVarying = normalize(v);
+    //eyeVarying = normalize(v);
     
     vertexPosition = normalize(vertexPosition);
     
@@ -61,9 +63,9 @@ void main()
     halfVarying = v;
     
     // Pass texture coordinate to the FSH
-    normalVarying = normal;
+    //normalVarying = normal;
     textureVarying = texture;
-    tangentVarying = tangent;
+    //tangentVarying = tangent;
     
     gl_Position = vertexPosition;
     

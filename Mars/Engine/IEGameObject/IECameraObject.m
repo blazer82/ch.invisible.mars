@@ -36,7 +36,7 @@
     
     _cameraNode = [[IECameraNode_Perspective alloc] initWithAspect:aspect];
     
-    self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
+    self.transformationController = [[IETransformationController alloc] initForNode:_cameraNode];
     
     return self;
 }
@@ -55,7 +55,7 @@
     
     _cameraNode = [[IECameraNode_Ortho alloc] initWithAspect:aspect];
     
-    self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
+    self.transformationController = [[IETransformationController alloc] initForNode:_cameraNode];
     
     return self;
 }
@@ -74,7 +74,7 @@
     
     _cameraNode = [[IECameraNode_Frustum alloc] initWithAspect:aspect];
     
-    self.transformationController = [[IETransformationController alloc] initForCameraNode:_cameraNode];
+    self.transformationController = [[IETransformationController alloc] initForNode:_cameraNode];
     
     return self;
 }

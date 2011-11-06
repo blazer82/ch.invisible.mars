@@ -11,15 +11,32 @@
 @implementation IERootNode
 
 @synthesize cameraChild = _cameraChild;
+@synthesize lightChild = _lightChild;
+@synthesize ambientLight = _ambientLight;
+
+- (id)init
+{
+    self = [super init];
+    
+    _ambientLight = GLKVector4Make(0.0f, 0.0f, 0.0f, 0.0f);
+    
+    return self;
+}
 
 - (void)attachCameraChild:(IECameraNode *)cameraNode
 {
     _cameraChild = cameraNode;
 }
 
+- (void)attachLightChild:(IELightNode *)lightNode
+{
+    _lightChild = lightNode;
+}
+
 - (void)dealloc
 {
     self.cameraChild = nil;
+    self.lightChild = nil;
 }
 
 @end

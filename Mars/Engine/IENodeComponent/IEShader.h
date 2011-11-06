@@ -15,6 +15,9 @@
 @property (nonatomic) GLuint uniformNormalMatrix;
 @property (nonatomic) GLuint uniformTextureSampler;
 @property (nonatomic) GLuint uniformNormalMapSampler;
+@property (nonatomic) GLuint uniformAmbientLight;
+@property (nonatomic) GLuint uniformLightPosition1;
+@property (nonatomic) GLuint uniformSpecularLight1;
 
 - (id)initWithProgram:(GLuint)program;
 

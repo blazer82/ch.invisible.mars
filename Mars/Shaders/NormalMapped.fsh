@@ -11,13 +11,16 @@ uniform sampler2D normalMapSampler;
 
 uniform lowp mat3 normalMatrix;
 
+uniform lowp vec4 ambientLight;
+uniform lowp vec4 specularLight1;
+
 //varying lowp vec4 colorVarying;
-varying lowp vec3 normalVarying;
+//varying lowp vec3 normalVarying;
 varying lowp vec2 textureVarying;
-varying lowp vec3 tangentVarying;
+//varying lowp vec3 tangentVarying;
 
 varying lowp vec3 lightVarying;
-varying lowp vec3 eyeVarying;
+//varying lowp vec3 eyeVarying;
 varying lowp vec3 halfVarying;
 
 void main()
@@ -37,7 +40,7 @@ void main()
 	lowp float shininess;
     
     // compute ambient
-	lowp vec4 ambientLight = vec4(0.2, 0.2, 0.2, 1.0);
+	//lowp vec4 ambientLight = vec4(0.2, 0.2, 0.2, 1.0);
     
     //if (lamberFactor > 0.0)
 	//{
@@ -45,7 +48,8 @@ void main()
 		diffuseLight  = vec4(1.0, 1.0, 1.0, 1.0);
 		
 		specularMaterial = vec4(0.1, 0.1, 0.1, 1.0);
-		specularLight = vec4(0.4, 0.4, 0.4, 1.0);
+		//specularLight = vec4(0.4, 0.4, 0.4, 1.0);
+        specularLight = specularLight1;
 		shininess = pow(max(dot(halfVarying, normal), 0.0), 2.0);
         
         //gl_FragColor =	diffuseMaterial * diffuseLight;

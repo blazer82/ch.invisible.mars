@@ -48,11 +48,14 @@ static IEGraphicsManager_OpenGLES2 *_manager = nil;
 
 - (void)prepareToDraw
 {
+    _manager.currentRootNode = _sceneGraph.rootNode;
+    
     [_manager prepareToDraw];
 }
 
 - (void)renderShapeNode:(IEShapeNode*)shapeNode forCameraNode:(IECameraNode*)cameraNode
 {
+    _manager.currentGroupNode = _sceneGraph.rootNode;
     [_manager renderShapeNode:shapeNode forCameraNode:cameraNode];
 }
 

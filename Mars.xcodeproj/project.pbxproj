@@ -71,6 +71,10 @@
 		2EDA702214657F8800CF23C1 /* NormalMapped.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA701E14657E2300CF23C1 /* NormalMapped.fsh */; };
 		2EDA702314657F8800CF23C1 /* NormalMapped.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA701B14657E0E00CF23C1 /* NormalMapped.vsh */; };
 		2EDA70251465B4E800CF23C1 /* cube2-normalmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA70241465B4E800CF23C1 /* cube2-normalmap.png */; };
+		2EDA70331466EDB300CF23C1 /* Cube.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA70321466EDB300CF23C1 /* Cube.m */; };
+		2EDA70361466F01300CF23C1 /* IELightNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA70351466F01300CF23C1 /* IELightNode.m */; };
+		2EDA70391466F16F00CF23C1 /* IELightObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA70381466F16F00CF23C1 /* IELightObject.m */; };
+		2EDA703F1466F6FC00CF23C1 /* Sunlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA703E1466F6FC00CF23C1 /* Sunlight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +178,14 @@
 		2EDA701E14657E2300CF23C1 /* NormalMapped.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = NormalMapped.fsh; sourceTree = "<group>"; };
 		2EDA702014657EC100CF23C1 /* terrain-normalmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terrain-normalmap.png"; sourceTree = "<group>"; };
 		2EDA70241465B4E800CF23C1 /* cube2-normalmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cube2-normalmap.png"; sourceTree = "<group>"; };
+		2EDA70311466EDB300CF23C1 /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cube.h; path = Game/Objects/Cube.h; sourceTree = "<group>"; };
+		2EDA70321466EDB300CF23C1 /* Cube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cube.m; path = Game/Objects/Cube.m; sourceTree = "<group>"; };
+		2EDA70341466F01200CF23C1 /* IELightNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IELightNode.h; sourceTree = "<group>"; };
+		2EDA70351466F01300CF23C1 /* IELightNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IELightNode.m; sourceTree = "<group>"; };
+		2EDA70371466F16F00CF23C1 /* IELightObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IELightObject.h; sourceTree = "<group>"; };
+		2EDA70381466F16F00CF23C1 /* IELightObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IELightObject.m; sourceTree = "<group>"; };
+		2EDA703D1466F6FC00CF23C1 /* Sunlight.h */ = {isa = PBXFileReference; fileEncoding = 4; name = Sunlight.h; path = Game/Objects/Sunlight.h; sourceTree = "<group>"; };
+		2EDA703E1466F6FC00CF23C1 /* Sunlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sunlight.m; path = Game/Objects/Sunlight.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +316,8 @@
 			children = (
 				2E0344DE1455F4440034B397 /* IECameraObject.h */,
 				2E0344DF1455F4440034B397 /* IECameraObject.m */,
+				2EDA70371466F16F00CF23C1 /* IELightObject.h */,
+				2EDA70381466F16F00CF23C1 /* IELightObject.m */,
 				2E0344E01455F4440034B397 /* IEParticleObject.h */,
 				2E0344E11455F4440034B397 /* IEParticleObject.m */,
 				2E0344E21455F4440034B397 /* IEParticleSystemObject.h */,
@@ -358,6 +372,8 @@
 				2E0345021455F4440034B397 /* IECameraNode.m */,
 				2E0345031455F4440034B397 /* IEGroupNode.h */,
 				2E0345041455F4440034B397 /* IEGroupNode.m */,
+				2EDA70341466F01200CF23C1 /* IELightNode.h */,
+				2EDA70351466F01300CF23C1 /* IELightNode.m */,
 				2E0345051455F4440034B397 /* IERootNode.h */,
 				2E0345061455F4440034B397 /* IERootNode.m */,
 				2E0345071455F4440034B397 /* IEShapeNode.h */,
@@ -427,12 +443,24 @@
 		2EC1BED61459F6630044C8CF /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				2EDA702A1466EC9000CF23C1 /* Objects */,
 				2EC1BED71459F6900044C8CF /* Game.h */,
 				2EC1BED81459F6900044C8CF /* Game.m */,
 				2EC1BEDA1459FA470044C8CF /* InputManager.h */,
 				2EC1BEDB1459FA470044C8CF /* InputManager.m */,
 			);
 			name = Game;
+			sourceTree = "<group>";
+		};
+		2EDA702A1466EC9000CF23C1 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2EDA70311466EDB300CF23C1 /* Cube.h */,
+				2EDA70321466EDB300CF23C1 /* Cube.m */,
+				2EDA703D1466F6FC00CF23C1 /* Sunlight.h */,
+				2EDA703E1466F6FC00CF23C1 /* Sunlight.m */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -553,6 +581,10 @@
 				2E07BDB21461C4F00026F385 /* IECameraNode_Frustum.m in Sources */,
 				2EDA701C14657E0E00CF23C1 /* NormalMapped.vsh in Sources */,
 				2EDA701F14657E2300CF23C1 /* NormalMapped.fsh in Sources */,
+				2EDA70331466EDB300CF23C1 /* Cube.m in Sources */,
+				2EDA70361466F01300CF23C1 /* IELightNode.m in Sources */,
+				2EDA70391466F16F00CF23C1 /* IELightObject.m in Sources */,
+				2EDA703F1466F6FC00CF23C1 /* Sunlight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
