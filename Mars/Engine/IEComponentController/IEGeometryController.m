@@ -334,34 +334,73 @@ typedef struct
         self.faces[faceIndex].tangent = GLKVector3Make(tangentMatrix.m00, tangentMatrix.m01, tangentMatrix.m02);
     }
     
-    self.tangents = malloc(sizeof(GLKVector3) * self.vertexCount);
+    self.tangents = malloc(sizeof(GLKVector3) * self.textureCount);
     
-    // compute vertex tangents
-    for (int vIndex = 0; vIndex < self.vertexCount; vIndex++)
+    ushort vertexIndex = 0;
+    for (ushort faceIndex1 = 0; faceIndex1 < self.faceCount; faceIndex1++)
     {
-        // average face tangets
+        Face3D face1 = self.faces[faceIndex1];
+        
+        // average face tangets for vertex1
         uint facesCount = 0;
         GLKVector3 vertexTangent = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        for (ushort faceIndex = 0; faceIndex < self.faceCount; faceIndex++)
+        for (ushort faceIndex2 = 0; faceIndex2 < self.faceCount; faceIndex2++)
         {
-            Face3D face = self.faces[faceIndex];
+            Face3D face2 = self.faces[faceIndex2];
             
-            if (face.v1 == faceIndex || face.v2 == faceIndex || face.v3 == faceIndex)
+            if ((face1.v1 == face2.v1 && face1.t1 == face2.t1)
+                || (face1.v1 == face2.v2 && face1.t1 == face2.t2)
+                || (face1.v1 == face2.v3 && face1.t1 == face2.t3))
             {
-                vertexTangent = GLKVector3Add(vertexTangent, face.tangent);
+                vertexTangent = GLKVector3Add(vertexTangent, face2.tangent);
                 facesCount++;
             }
         }
-        
         vertexTangent = GLKVector3Normalize(GLKVector3DivideScalar(vertexTangent, facesCount));
+        self.tangents[vertexIndex] = vertexTangent;
+        face1.tangent1 = vertexIndex;
+        vertexIndex++;
         
-        self.tangents[vIndex] = vertexTangent;
+        // average face tangets for vertex2
+        facesCount = 0;
+        vertexTangent = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        for (ushort faceIndex2 = 0; faceIndex2 < self.faceCount; faceIndex2++)
+        {
+            Face3D face2 = self.faces[faceIndex2];
+            
+            if ((face1.v2 == face2.v1 && face1.t2 == face2.t1)
+                || (face1.v2 == face2.v2 && face1.t2 == face2.t2)
+                || (face1.v2 == face2.v3 && face1.t2 == face2.t3))
+            {
+                vertexTangent = GLKVector3Add(vertexTangent, face2.tangent);
+                facesCount++;
+            }
+        }
+        vertexTangent = GLKVector3Normalize(GLKVector3DivideScalar(vertexTangent, facesCount));
+        self.tangents[vertexIndex] = vertexTangent;
+        face1.tangent2 = vertexIndex;
+        vertexIndex++;
+        
+        // average face tangets for vertex3
+        facesCount = 0;
+        vertexTangent = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        for (ushort faceIndex2 = 0; faceIndex2 < self.faceCount; faceIndex2++)
+        {
+            Face3D face2 = self.faces[faceIndex2];
+            
+            if ((face1.v3 == face2.v1 && face1.t3 == face2.t1)
+                || (face1.v3 == face2.v2 && face1.t3 == face2.t2)
+                || (face1.v3 == face2.v3 && face1.t3 == face2.t3))
+            {
+                vertexTangent = GLKVector3Add(vertexTangent, face2.tangent);
+                facesCount++;
+            }
+        }
+        vertexTangent = GLKVector3Normalize(GLKVector3DivideScalar(vertexTangent, facesCount));
+        self.tangents[vertexIndex] = vertexTangent;
+        face1.tangent3 = vertexIndex;
+        vertexIndex++;
     }
-    
-    /*for (int vIndex = 0; vIndex < self.vertexCount; vIndex++)
-    {
-        NSLog([NSString stringWithFormat:@"vertex tangent x:%f y:%f z:%f", self.tangents[vIndex].x, self.tangents[vIndex].y, self.tangents[vIndex].z]);
-    }*/
 }
 
 - (void)freeSourceData
