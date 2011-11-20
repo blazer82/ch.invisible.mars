@@ -61,6 +61,10 @@
 		2E07BDAD145E24EE0026F385 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAC145E24EE0026F385 /* Default.png */; };
 		2E07BDAF145E24F20026F385 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E07BDAE145E24F20026F385 /* Default@2x.png */; };
 		2E07BDB21461C4F00026F385 /* IECameraNode_Frustum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E07BDB11461C4EF0026F385 /* IECameraNode_Frustum.m */; };
+		2E87BAA314788B8300887065 /* Basestation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E87BAA214788B8300887065 /* Basestation.m */; };
+		2E87BAA614788C0900887065 /* basestation2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2E87BAA514788C0900887065 /* basestation2.obj */; };
+		2E87BAA914788C1700887065 /* basestation2-normalmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E87BAA714788C1700887065 /* basestation2-normalmap.png */; };
+		2E87BAAA14788C1700887065 /* basestation2-texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E87BAA814788C1700887065 /* basestation2-texture.png */; };
 		2EC1BED11459F4DD0044C8CF /* IECameraNode_Perspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */; };
 		2EC1BED41459F4EB0044C8CF /* IECameraNode_Ortho.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED31459F4EB0044C8CF /* IECameraNode_Ortho.m */; };
 		2EC1BED91459F6900044C8CF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1BED81459F6900044C8CF /* Game.m */; };
@@ -167,6 +171,11 @@
 		2E07BDAE145E24F20026F385 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		2E07BDB01461C4EF0026F385 /* IECameraNode_Frustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Frustum.h; path = IECameraNode/IECameraNode_Frustum.h; sourceTree = "<group>"; };
 		2E07BDB11461C4EF0026F385 /* IECameraNode_Frustum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IECameraNode_Frustum.m; path = IECameraNode/IECameraNode_Frustum.m; sourceTree = "<group>"; };
+		2E87BAA114788B8300887065 /* Basestation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Basestation.h; path = Game/Objects/Basestation.h; sourceTree = "<group>"; };
+		2E87BAA214788B8300887065 /* Basestation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Basestation.m; path = Game/Objects/Basestation.m; sourceTree = "<group>"; };
+		2E87BAA514788C0900887065 /* basestation2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = basestation2.obj; sourceTree = "<group>"; };
+		2E87BAA714788C1700887065 /* basestation2-normalmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basestation2-normalmap.png"; sourceTree = "<group>"; };
+		2E87BAA814788C1700887065 /* basestation2-texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basestation2-texture.png"; sourceTree = "<group>"; };
 		2EC1BECF1459F4DD0044C8CF /* IECameraNode_Perspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Perspective.h; path = IECameraNode/IECameraNode_Perspective.h; sourceTree = "<group>"; };
 		2EC1BED01459F4DD0044C8CF /* IECameraNode_Perspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IECameraNode_Perspective.m; path = IECameraNode/IECameraNode_Perspective.m; sourceTree = "<group>"; };
 		2EC1BED21459F4EB0044C8CF /* IECameraNode_Ortho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IECameraNode_Ortho.h; path = IECameraNode/IECameraNode_Ortho.h; sourceTree = "<group>"; };
@@ -389,6 +398,7 @@
 		2E03450B1455F4440034B397 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E87BAA514788C0900887065 /* basestation2.obj */,
 				2E03453B1455FB950034B397 /* terrain.obj */,
 				2E0345331455F8DB0034B397 /* cube2.obj */,
 				2E03452D1455F71B0034B397 /* basestation.obj */,
@@ -421,6 +431,8 @@
 		2E0345101455F4440034B397 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				2E87BAA714788C1700887065 /* basestation2-normalmap.png */,
+				2E87BAA814788C1700887065 /* basestation2-texture.png */,
 				2E03452F1455F7240034B397 /* basestation.png */,
 				2EDA70241465B4E800CF23C1 /* cube2-normalmap.png */,
 				2E0345351455F8E30034B397 /* cube2.png */,
@@ -461,6 +473,8 @@
 		2EDA702A1466EC9000CF23C1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				2E87BAA114788B8300887065 /* Basestation.h */,
+				2E87BAA214788B8300887065 /* Basestation.m */,
 				2EDA70311466EDB300CF23C1 /* Cube.h */,
 				2EDA70321466EDB300CF23C1 /* Cube.m */,
 				2EDA703D1466F6FC00CF23C1 /* Sunlight.h */,
@@ -539,6 +553,9 @@
 				2EDA70251465B4E800CF23C1 /* cube2-normalmap.png in Resources */,
 				2EDA70421467484300CF23C1 /* cube3-normalmap.png in Resources */,
 				2EDA70431467484300CF23C1 /* cube3.png in Resources */,
+				2E87BAA614788C0900887065 /* basestation2.obj in Resources */,
+				2E87BAA914788C1700887065 /* basestation2-normalmap.png in Resources */,
+				2E87BAAA14788C1700887065 /* basestation2-texture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +610,7 @@
 				2EDA70361466F01300CF23C1 /* IELightNode.m in Sources */,
 				2EDA70391466F16F00CF23C1 /* IELightObject.m in Sources */,
 				2EDA703F1466F6FC00CF23C1 /* Sunlight.m in Sources */,
+				2E87BAA314788B8300887065 /* Basestation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

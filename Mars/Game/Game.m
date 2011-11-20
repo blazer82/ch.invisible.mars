@@ -9,6 +9,7 @@
 #import "Game.h"
 #import "Cube.h"
 #import "Sunlight.h"
+#import "Basestation.h"
 
 @interface Game ()
 {
@@ -50,8 +51,8 @@
     
     // light (sun & ambient)
     Sunlight *sunlight = [[Sunlight alloc] init];
-    sunlight.lightNode.light = GLKVector4Make(0.5f, 0.4f, 0.4f, 1.0f);
-    [sunlight setupWithAmbientLight:GLKVector4Make(0.2f, 0.1f, 0.1f, 1.0f)];
+    sunlight.lightNode.light = GLKVector4Make(0.5f, 0.5f, 0.5f, 1.0f);
+    [sunlight setupWithAmbientLight:GLKVector4Make(0.15f, 0.1f, 0.1f, 1.0f)];
     [sunlight.transformationController moveX:20.0f];
     [sunlight.transformationController moveY:100.0f];
     [sunlight.transformationController moveZ:-10.0f];
@@ -68,8 +69,8 @@
     [_gameManager.cameraObject.transformationController moveY:-20.0f];
     
     // cube
-    _shapeObject = [[Cube alloc] init];
-    [_gameManager registerShapeObject:_shapeObject];
+    //_shapeObject = [[Cube alloc] init];
+    //[_gameManager registerShapeObject:_shapeObject];
     
     // terrain
     /*_shapeObject = [[IEShapeObject alloc] initWithGeometryNamed:@"terrain" andShaderNamed:@"NormalMapped" andTextureNamed:@"terrain"];
@@ -78,8 +79,8 @@
     [_gameManager registerShapeObject:_shapeObject];*/
     
     // basestation
-    /*_shapeObject2 = [[IEShapeObject alloc] initWithGeometryNamed:@"basestation" andShaderNamed:@"Shader" andTextureNamed:@"basestation"];
-    [_gameManager registerShapeObject:_shapeObject2];*/
+    _shapeObject = [[Basestation alloc] init];
+    [_gameManager registerShapeObject:_shapeObject];
 }
 
 - (void)update:(float)timeSinceLastUpdate
